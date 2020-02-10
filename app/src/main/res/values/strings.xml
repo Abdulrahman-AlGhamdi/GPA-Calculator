@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Student World</string>
+
+    // App Strings
+    <string name="calculate">Calculate GPA</string>
+    <string name="translate">Translator</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

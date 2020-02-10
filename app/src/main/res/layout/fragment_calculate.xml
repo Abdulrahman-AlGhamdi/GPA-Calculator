@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalculateFragment"
+    android:background="#eeedeb"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/Subject1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_calculate_raw"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/Credit1"
+            android:layout_width="100dp"
+            android:hint="Credit"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:textColor="@color/Brown"
+            android:backgroundTint="@color/Brown"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/Grade1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/Brown"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_calculate_raw"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/Credit2"
+            android:layout_width="100dp"
+            android:hint="Credit"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:textColor="@color/Brown"
+            android:backgroundTint="@color/Brown"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/Grade2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/Brown"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_calculate_raw"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/Credit3"
+            android:layout_width="100dp"
+            android:hint="Credit"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:textColor="@color/Brown"
+            android:backgroundTint="@color/Brown"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/Grade3"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/Brown"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_calculate_raw"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/Credit4"
+            android:layout_width="100dp"
+            android:hint="Credit"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:textColor="@color/Brown"
+            android:backgroundTint="@color/Brown"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/Grade4"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/Brown"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_calculate_raw"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/Credit5"
+            android:layout_width="100dp"
+            android:hint="Credit"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:textColor="@color/Brown"
+            android:backgroundTint="@color/Brown"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/Grade5"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/Brown"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_calculate_raw"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/Credit6"
+            android:layout_width="100dp"
+            android:hint="Credit"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:textColor="@color/Brown"
+            android:backgroundTint="@color/Brown"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/Grade6"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/Brown"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_calculate_raw"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/Credit7"
+            android:layout_width="100dp"
+            android:hint="Credit"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:textColor="@color/Brown"
+            android:backgroundTint="@color/Brown"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/Grade7"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/Brown"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_calculate_raw"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/Credit8"
+            android:layout_width="100dp"
+            android:hint="Credit"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:textColor="@color/Brown"
+            android:backgroundTint="@color/Brown"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/Grade8"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/Brown"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_calculate_raw"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/Credit9"
+            android:layout_width="100dp"
+            android:hint="Credit"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:textColor="@color/Brown"
+            android:backgroundTint="@color/Brown"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/Grade9"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/Brown"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_calculate_raw"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/Credit10"
+            android:layout_width="100dp"
+            android:hint="Credit"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:textColor="@color/Brown"
+            android:backgroundTint="@color/Brown"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/Grade10"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/Brown"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Add"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="+"
+                android:textSize="20dp"
+                android:background="@drawable/rounded_calculate_raw"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:id="@+id/Remove"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="-"
+                android:textSize="20dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_calculate_raw"/>
+
+            <Button
+                android:id="@+id/Calculate"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_button"
+                android:gravity="center"
+                android:text="Calculate"
+                android:textColor="@color/Beige"
+                android:layout_marginRight="10dp"
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/TotalGPA"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text=""
+                android:gravity="center"
+                android:hint="GPA"
+                android:textColor="@color/Brown"
+                android:textColorHint="@color/Brown"
+                android:textSize="20sp"
+                android:background="@drawable/rounded_calculate_raw"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

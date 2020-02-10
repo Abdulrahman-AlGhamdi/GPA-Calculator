@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainFragment"
+    android:background="@color/Brown"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/CalculateGPA"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/calculate_rounded_image"
+            android:src="@drawable/gpa_calculator_icon"
+            android:padding="10dp"
+            android:tint="@color/White"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_text"
+            android:text="@string/calculate"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:fontFamily="@font/quest_regular"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Translate"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/translate_rounded_image"
+            android:src="@drawable/translate_icon"
+            android:padding="10dp"
+            android:tint="@color/White"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_text"
+            android:text="@string/translate"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:fontFamily="@font/quest_regular"/>
+
+    </LinearLayout>
+
+</LinearLayout>
