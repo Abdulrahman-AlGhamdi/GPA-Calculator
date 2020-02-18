@@ -1,5 +1,8 @@
-package com.game.studentworld;
+package com.game.studentworld.Fragment;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,6 +14,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.game.studentworld.R;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +41,7 @@ public class CalculateFragment extends Fragment {
     private double TotalScore;
     private double TotalCredit;
     private double GPA;
+    private Dialog ResultDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -42,7 +49,7 @@ public class CalculateFragment extends Fragment {
 
         init();
         RevealRow();
-        calculate();
+        Calculate();
 
         return view;
     }
@@ -52,7 +59,6 @@ public class CalculateFragment extends Fragment {
                 R.id.Credit6, R.id.Credit7, R.id.Credit8, R.id.Credit9, R.id.Credit10};
         mGradeArray = new int[] {R.id.Grade1, R.id.Grade2, R.id.Grade3, R.id.Grade4, R.id.Grade5,
                 R.id.Grade6, R.id.Grade7, R.id.Grade8, R.id.Grade9, R.id.Grade10};
-        mTotalGPA = view.findViewById(R.id.TotalGPA);
         mCalculate = view.findViewById(R.id.Calculate);
         mAdd = view.findViewById(R.id.Add);
         mRemove = view.findViewById(R.id.Remove);
@@ -63,6 +69,7 @@ public class CalculateFragment extends Fragment {
         TotalScore = 0.0;
         TotalCredit = 0.0;
         GPA = 0.0;
+        ResultDialog = new Dialog(getActivity());
     }
 
     private void RevealRow(){
@@ -176,7 +183,7 @@ public class CalculateFragment extends Fragment {
         });
     }
 
-    private void calculate(){
+    private void Calculate(){
 
         mCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,8 +224,10 @@ public class CalculateFragment extends Fragment {
                         GradeValue = 2.5;
                     } else if (GradeString.equals("D")) {
                         GradeValue = 2;
-                    } else {
+                    } else if (GradeString.equals("F")) {
                         GradeValue = 1;
+                    } else {
+                        GradeValue = 0;
                     }
                     GradeList.add(GradeValue);
                 }
@@ -226,9 +235,15 @@ public class CalculateFragment extends Fragment {
                 for (int i = 0; i < RawPosition; i++) {
                     double Grade = GradeList.get(i);
                     double Credit = CreditList.get(i);
-                    double Score = (Credit*Grade);
-                    TotalCredit += Credit;
-                    TotalScore += Score;
+                    if (Grade > 0){
+                        double Score = (Credit*Grade);
+                        TotalCredit += Credit;
+                        TotalScore += Score;
+
+                    } else {
+                        TotalCredit += 0;
+                        TotalScore += 0;
+                    }
                     GPA = (TotalScore/TotalCredit);
                 }
 
@@ -238,7 +253,6 @@ public class CalculateFragment extends Fragment {
                 CreditList.clear();
                 DecimalFormat decimalFormat = new DecimalFormat("##.##");
                 mTotalGPA.setText(decimalFormat.format(GPA));
-
             }
         });
     }

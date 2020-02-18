@@ -1,11 +1,13 @@
-package com.game.studentworld;
+package com.game.studentworld.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+
+import com.game.studentworld.Fragment.MainFragment;
+import com.game.studentworld.R;
 
 public class MainActivity extends AppCompatActivity {
 

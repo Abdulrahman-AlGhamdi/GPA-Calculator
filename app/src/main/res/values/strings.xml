@@ -2,9 +2,17 @@
     <string name="app_name">Student World</string>
 
     // App Strings
-    <string name="calculate">Calculate GPA</string>
-    <string name="translate">Translator</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="calculate_gpa">Calculate GPA</string>
+    <string name="translator">Translator</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="credit">Credit</string>
+    <string name="add">إضافه</string>
+    <string name="remove">حذف</string>
+    <string name="gpa">GPA</string>
+    <string name="calculate_semester">فصلي</string>
+    <string name="calculate">حساب المعدل</string>
+    <string name="calculate_total">تراكمي</string>
+    <string name="enter_text">Enter Text</string>
+    <string name="translation">Translation</string>
+    <string name="News">News</string>
 </resources>

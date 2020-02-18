@@ -1,4 +1,4 @@
-package com.game.studentworld;
+package com.game.studentworld.Fragment;
 
 import android.os.Bundle;
 
@@ -10,12 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+
+import com.game.studentworld.R;
 
 public class MainFragment extends Fragment {
 
     private View view;
-    private LinearLayout mCalculate, mTranslate;
+    private LinearLayout mCalculate;
     private Fragment mCalculateFragment;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -23,17 +24,16 @@ public class MainFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
         init();
-        calculate();
+        Calculate();
 
         return view;
     }
 
     private void init(){
         mCalculate = view.findViewById(R.id.CalculateGPA);
-        mTranslate = view.findViewById(R.id.Translate);
     }
 
-    private void calculate() {
+    private void Calculate() {
         mCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
