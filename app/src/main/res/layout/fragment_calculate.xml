@@ -19,26 +19,11 @@
 
         <EditText
             android:id="@+id/Credit1"
-            android:layout_width="100dp"
-            android:hint="@string/credit"
-            android:layout_height="50dp"
-            android:inputType="number"
-            android:textColor="@color/Brown"
-            android:backgroundTint="@color/Brown"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:importantForAutofill="no" />
+            style="@style/ArabicEditTextStyle"/>
 
         <Spinner
             android:id="@+id/Grade1"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/Brown"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_marginEnd="10dp"/>
+            style="@style/ArabicSpinnerStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -52,26 +37,10 @@
 
         <EditText
             android:id="@+id/Credit2"
-            android:layout_width="100dp"
-            android:hint="@string/credit"
-            android:layout_height="50dp"
-            android:inputType="number"
-            android:textColor="@color/Brown"
-            android:backgroundTint="@color/Brown"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:importantForAutofill="no"/>
-
+            style="@style/ArabicEditTextStyle"/>
         <Spinner
             android:id="@+id/Grade2"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/Brown"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_marginEnd="10dp"/>
+            style="@style/ArabicSpinnerStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -85,26 +54,11 @@
 
         <EditText
             android:id="@+id/Credit3"
-            android:layout_width="100dp"
-            android:hint="@string/credit"
-            android:layout_height="50dp"
-            android:inputType="number"
-            android:textColor="@color/Brown"
-            android:backgroundTint="@color/Brown"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:importantForAutofill="no"/>
+            style="@style/ArabicEditTextStyle"/>
 
         <Spinner
             android:id="@+id/Grade3"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/Brown"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_marginEnd="10dp"/>
+            style="@style/ArabicSpinnerStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -118,26 +72,11 @@
 
         <EditText
             android:id="@+id/Credit4"
-            android:layout_width="100dp"
-            android:hint="@string/credit"
-            android:layout_height="50dp"
-            android:inputType="number"
-            android:textColor="@color/Brown"
-            android:backgroundTint="@color/Brown"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:importantForAutofill="no"/>
+            style="@style/ArabicEditTextStyle"/>
 
         <Spinner
             android:id="@+id/Grade4"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/Brown"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_marginEnd="10dp"/>
+            style="@style/ArabicSpinnerStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -151,26 +90,11 @@
 
         <EditText
             android:id="@+id/Credit5"
-            android:layout_width="100dp"
-            android:hint="@string/credit"
-            android:layout_height="50dp"
-            android:inputType="number"
-            android:textColor="@color/Brown"
-            android:backgroundTint="@color/Brown"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:importantForAutofill="no"/>
+            style="@style/ArabicEditTextStyle"/>
 
         <Spinner
             android:id="@+id/Grade5"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/Brown"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_marginEnd="10dp"/>
+            style="@style/ArabicSpinnerStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -184,26 +108,11 @@
 
         <EditText
             android:id="@+id/Credit6"
-            android:layout_width="100dp"
-            android:hint="@string/credit"
-            android:layout_height="50dp"
-            android:inputType="number"
-            android:textColor="@color/Brown"
-            android:backgroundTint="@color/Brown"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:importantForAutofill="no"/>
+            style="@style/ArabicEditTextStyle"/>
 
         <Spinner
             android:id="@+id/Grade6"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/Brown"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_marginEnd="10dp"/>
+            style="@style/ArabicSpinnerStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -217,26 +126,11 @@
 
         <EditText
             android:id="@+id/Credit7"
-            android:layout_width="100dp"
-            android:hint="@string/credit"
-            android:layout_height="50dp"
-            android:inputType="number"
-            android:textColor="@color/Brown"
-            android:backgroundTint="@color/Brown"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:importantForAutofill="no"/>
+            style="@style/ArabicEditTextStyle"/>
 
         <Spinner
             android:id="@+id/Grade7"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/Brown"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_marginEnd="10dp"/>
+            style="@style/ArabicSpinnerStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -250,26 +144,11 @@
 
         <EditText
             android:id="@+id/Credit8"
-            android:layout_width="100dp"
-            android:hint="@string/credit"
-            android:layout_height="50dp"
-            android:inputType="number"
-            android:textColor="@color/Brown"
-            android:backgroundTint="@color/Brown"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:importantForAutofill="no"/>
+            style="@style/ArabicEditTextStyle"/>
 
         <Spinner
             android:id="@+id/Grade8"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/Brown"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_marginEnd="10dp"/>
+            style="@style/ArabicSpinnerStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -283,26 +162,11 @@
 
         <EditText
             android:id="@+id/Credit9"
-            android:layout_width="100dp"
-            android:hint="@string/credit"
-            android:layout_height="50dp"
-            android:inputType="number"
-            android:textColor="@color/Brown"
-            android:backgroundTint="@color/Brown"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:importantForAutofill="no"/>
+            style="@style/ArabicEditTextStyle"/>
 
         <Spinner
             android:id="@+id/Grade9"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/Brown"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_marginEnd="10dp"/>
+            style="@style/ArabicSpinnerStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -316,26 +180,11 @@
 
         <EditText
             android:id="@+id/Credit10"
-            android:layout_width="100dp"
-            android:hint="@string/credit"
-            android:layout_height="50dp"
-            android:inputType="number"
-            android:textColor="@color/Brown"
-            android:backgroundTint="@color/Brown"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:importantForAutofill="no"/>
+            style="@style/ArabicEditTextStyle"/>
 
         <Spinner
             android:id="@+id/Grade10"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/Brown"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_marginEnd="10dp"/>
+            style="@style/ArabicSpinnerStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -354,16 +203,16 @@
             android:layout_marginEnd="10dp"
             android:background="@drawable/rounded_shape"/>
 
-            <Button
-                android:id="@+id/Calculate"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:text="@string/calculate"
-                android:fontFamily="@font/quest_regular"
-                android:textColor="@color/Brown"
-                android:layout_marginEnd="10dp"
-                android:textSize="20sp"
-                android:background="@drawable/rounded_shape"/>
+        <Button
+            android:id="@+id/Calculate"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="@string/calculate"
+            android:fontFamily="@font/quest_regular"
+            android:textColor="@color/Brown"
+            android:layout_marginEnd="10dp"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_shape"/>
 
         <Button
             android:id="@+id/Add"

@@ -1,18 +1,26 @@
 <resources>
-    <string name="app_name">Student World</string>
+    <string name="app_name">حساب المعدل</string>
 
     // App Strings
-    <string name="calculate_gpa">Calculate GPA</string>
-    <string name="translator">Translator</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="credit">Credit</string>
+    <string name="credit">الساعات</string>
     <string name="add">إضافه</string>
     <string name="remove">حذف</string>
-    <string name="gpa">GPA</string>
+    <string name="gpa">المعدل</string>
     <string name="calculate_semester">فصلي</string>
     <string name="calculate">حساب المعدل</string>
     <string name="calculate_total">تراكمي</string>
-    <string name="enter_text">Enter Text</string>
-    <string name="translation">Translation</string>
-    <string name="News">News</string>
+
+    // Spinner Strings
+    <string-array name="Grades">
+        <item>A+</item>
+        <item>A</item>
+        <item>B+</item>
+        <item>B</item>
+        <item>C+</item>
+        <item>C</item>
+        <item>D+</item>
+        <item>D</item>
+        <item>الدرجه</item>
+    </string-array>
+
 </resources>

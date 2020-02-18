@@ -1,13 +1,15 @@
 package com.game.studentworld.Fragment;
 
-import android.app.Dialog;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +18,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.game.studentworld.R;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,23 +26,21 @@ public class CalculateFragment extends Fragment {
 
     // Views
     private View view;
-    private int[] mCreditArray;
-    private int[] mGradeArray;
-    private Button mCalculate;
     private Button mAdd;
     private Button mRemove;
+    private Button mCalculate;
+    private int[] mGradeArray;
+    private int[] mCreditArray;
     private LinearLayout mSubject;
-    private TextView mTotalGPA;
 
     // Functions
-    private ArrayAdapter<String> adapter;
-    private int RawPosition = 0;
-    private List<Double> CreditList;
-    private List<Double> GradeList;
+    private double GPA;
     private double TotalScore;
     private double TotalCredit;
-    private double GPA;
-    private Dialog ResultDialog;
+    private int RawPosition = 0;
+    private List<Double> GradeList;
+    private List<Double> CreditList;
+    private ArrayAdapter<String> adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -55,21 +54,22 @@ public class CalculateFragment extends Fragment {
     }
 
     private void init(){
-        mCreditArray = new int[] {R.id.Credit1, R.id.Credit2, R.id.Credit3, R.id.Credit4, R.id.Credit5,
-                R.id.Credit6, R.id.Credit7, R.id.Credit8, R.id.Credit9, R.id.Credit10};
-        mGradeArray = new int[] {R.id.Grade1, R.id.Grade2, R.id.Grade3, R.id.Grade4, R.id.Grade5,
-                R.id.Grade6, R.id.Grade7, R.id.Grade8, R.id.Grade9, R.id.Grade10};
-        mCalculate = view.findViewById(R.id.Calculate);
+        GradeList = new ArrayList<>();
+        CreditList = new ArrayList<>();
         mAdd = view.findViewById(R.id.Add);
         mRemove = view.findViewById(R.id.Remove);
-        String[] grades = new String[]{"Choose Grade", "A+", "A", "B+", "B", "C+", "C", "D+", "D", "F"};
-        adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, grades);
-        CreditList = new ArrayList<>();
-        GradeList = new ArrayList<>();
-        TotalScore = 0.0;
-        TotalCredit = 0.0;
-        GPA = 0.0;
-        ResultDialog = new Dialog(getActivity());
+        mCalculate = view.findViewById(R.id.Calculate);
+        mGradeArray = new int[] {R.id.Grade1, R.id.Grade2, R.id.Grade3, R.id.Grade4, R.id.Grade5,
+                R.id.Grade6, R.id.Grade7, R.id.Grade8, R.id.Grade9, R.id.Grade10};
+        mCreditArray = new int[] {R.id.Credit1, R.id.Credit2, R.id.Credit3, R.id.Credit4, R.id.Credit5,
+                R.id.Credit6, R.id.Credit7, R.id.Credit8, R.id.Credit9, R.id.Credit10};
+        adapter = new ArrayAdapter<String>(getActivity(), R.layout.spinner_layout, getResources().getStringArray(R.array.Grades)){
+            @Override
+            public int getCount() {
+                return super.getCount()-1;
+            }
+        };
+        mCalculate.setEnabled(false);
     }
 
     private void RevealRow(){
@@ -79,7 +79,26 @@ public class CalculateFragment extends Fragment {
 
                 for (int GradeID : mGradeArray) {
                     Spinner Grade = view.findViewById(GradeID);
+
+                    Grade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            TextView grade = (TextView) view;
+                            if (position == adapter.getCount()) {
+                                grade.setTextColor(Color.GRAY);
+                            } else {
+                                grade.setTextColor(getResources().getColor(R.color.Brown));
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+
                     Grade.setAdapter(adapter);
+                    Grade.setSelection(adapter.getCount());
                 }
 
                 for (int CreditID : mCreditArray) {
@@ -88,7 +107,9 @@ public class CalculateFragment extends Fragment {
                 }
 
                 if(RawPosition < 10 && RawPosition >= 0){
+
                     RawPosition +=1;
+
                     if (RawPosition == 1) {
                         mSubject = view.findViewById(R.id.Subject1);
                         mSubject.setVisibility(View.VISIBLE);
@@ -130,6 +151,11 @@ public class CalculateFragment extends Fragment {
                         mSubject.setVisibility(View.VISIBLE);
                     }
                 }
+                if(RawPosition == 0){
+                    mCalculate.setEnabled(false);
+                }else{
+                    mCalculate.setEnabled(true);
+                }
             }
         });
 
@@ -137,7 +163,9 @@ public class CalculateFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(RawPosition <= 10 && RawPosition > 0){
+
                     RawPosition -=1;
+
                     if (RawPosition == 0) {
                         mSubject = view.findViewById(R.id.Subject1);
                         mSubject.setVisibility(View.INVISIBLE);
@@ -178,6 +206,11 @@ public class CalculateFragment extends Fragment {
                         mSubject = view.findViewById(R.id.Subject10);
                         mSubject.setVisibility(View.INVISIBLE);
                     }
+                }
+                if(RawPosition == 0){
+                    mCalculate.setEnabled(false);
+                }else{
+                    mCalculate.setEnabled(true);
                 }
             }
         });
@@ -247,12 +280,17 @@ public class CalculateFragment extends Fragment {
                     GPA = (TotalScore/TotalCredit);
                 }
 
+                if(String.valueOf(GPA) == "NaN"){
+                    GPA = 0;
+                }
+
                 TotalCredit = 0.0;
                 TotalScore = 0.0;
                 GradeList.clear();
                 CreditList.clear();
-                DecimalFormat decimalFormat = new DecimalFormat("##.##");
-                mTotalGPA.setText(decimalFormat.format(GPA));
+                DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                decimalFormat.format(GPA);
+                Log.d("GPAResult", decimalFormat.format(GPA));
             }
         });
     }
