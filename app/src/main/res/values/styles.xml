@@ -9,9 +9,19 @@
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:gravity">center</item>
     </style>
 
-    <style name="ArabicEditTextStyle">
+    <style name="LinearLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/square_shape</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="EditTextStyle">
         <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginRight">10dp</item>
         <item name="android:layout_width">100sp</item>
@@ -20,22 +30,31 @@
         <item name="android:textColorHint">@color/Beige</item>
         <item name="android:inputType">number</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/Blue</item>
+        <item name="android:textColor">@color/Beige</item>
         <item name="android:fontFamily">@font/quest_regular</item>
-        <item name="android:background">@null</item>
+        <item name="android:backgroundTint">@color/Beige</item>
     </style>
 
-    <style name="ArabicSpinnerStyle">
+    <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner.Underlined">
         <item name="android:layout_marginRight">10dp</item>
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">150dp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:hint">@string/credit</item>
         <item name="android:inputType">number</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/Beige</item>
+        <item name="android:textAlignment">center</item>
         <item name="android:fontFamily">@font/quest_regular</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:spinnerMode">dialog</item>
+        <item name="android:backgroundTint">@color/Beige</item>
+    </style>
+
+    <style name="TextViewStyle">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:background">@drawable/circle_shape</item>
     </style>
 
 </resources>

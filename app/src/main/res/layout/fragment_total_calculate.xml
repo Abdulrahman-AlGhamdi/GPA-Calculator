@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.SemesterCalculateFragment"
+    android:padding="15dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/Subject1"
+        style="@style/LinearLayoutStyle">
+
+        <EditText
+            android:id="@+id/TotalCredit1"
+            style="@style/EditTextStyle"/>
+
+        <Spinner
+            android:id="@+id/Grade1"
+            style="@style/SpinnerStyle"/>
+
+        <TextView
+            android:text="@string/one"
+            style="@style/TextViewStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject2"
+        style="@style/LinearLayoutStyle">
+
+        <EditText
+            android:id="@+id/TotalCredit2"
+            style="@style/EditTextStyle"/>
+
+        <Spinner
+            android:id="@+id/Grade2"
+            style="@style/SpinnerStyle"/>
+
+        <TextView
+            android:text="@string/two"
+            style="@style/TextViewStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject3"
+        style="@style/LinearLayoutStyle">
+
+        <EditText
+            android:id="@+id/TotalCredit3"
+            style="@style/EditTextStyle"/>
+
+        <Spinner
+            android:id="@+id/Grade3"
+            style="@style/SpinnerStyle"/>
+
+        <TextView
+            android:text="@string/three"
+            style="@style/TextViewStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject4"
+        style="@style/LinearLayoutStyle">
+
+        <EditText
+            android:id="@+id/TotalCredit4"
+            style="@style/EditTextStyle"/>
+
+        <Spinner
+            android:id="@+id/Grade4"
+            style="@style/SpinnerStyle"/>
+
+        <TextView
+            android:text="@string/four"
+            style="@style/TextViewStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject5"
+        style="@style/LinearLayoutStyle">
+
+        <EditText
+            android:id="@+id/TotalCredit5"
+            style="@style/EditTextStyle"/>
+
+        <Spinner
+            android:id="@+id/Grade5"
+            style="@style/SpinnerStyle"/>
+
+        <TextView
+            android:text="@string/five"
+            style="@style/TextViewStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject6"
+        style="@style/LinearLayoutStyle">
+
+        <EditText
+            android:id="@+id/TotalCredit6"
+            style="@style/EditTextStyle"/>
+
+        <Spinner
+            android:id="@+id/Grade6"
+            style="@style/SpinnerStyle"/>
+
+        <TextView
+            android:text="@string/six"
+            style="@style/TextViewStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject7"
+        style="@style/LinearLayoutStyle">
+
+        <EditText
+            android:id="@+id/TotalCredit7"
+            style="@style/EditTextStyle"/>
+
+        <Spinner
+            android:id="@+id/Grade7"
+            style="@style/SpinnerStyle"/>
+
+        <TextView
+            android:text="@string/seven"
+            style="@style/TextViewStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject8"
+        style="@style/LinearLayoutStyle">
+
+        <EditText
+            android:id="@+id/TotalCredit8"
+            style="@style/EditTextStyle"/>
+
+        <Spinner
+            android:id="@+id/Grade8"
+            style="@style/SpinnerStyle"/>
+
+        <TextView
+            android:text="@string/eight"
+            style="@style/TextViewStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject9"
+        style="@style/LinearLayoutStyle">
+
+        <EditText
+            android:id="@+id/TotalCredit9"
+            style="@style/EditTextStyle"/>
+
+        <Spinner
+            android:id="@+id/Grade9"
+            style="@style/SpinnerStyle"/>
+
+        <TextView
+            android:text="@string/nine"
+            style="@style/TextViewStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Subject10"
+        style="@style/LinearLayoutStyle">
+
+        <EditText
+            android:id="@+id/TotalCredit10"
+            style="@style/EditTextStyle"/>
+
+        <Spinner
+            android:id="@+id/Grade10"
+            style="@style/SpinnerStyle"/>
+
+        <TextView
+            android:text="@string/ten"
+            style="@style/TextViewStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom|center"
+            android:layout_marginBottom="10dp">
+
+            <EditText
+                android:id="@+id/OldGPA"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:hint="لمعدل السابق"
+                android:textColorHint="@color/Black"
+                android:inputType="number"
+                android:gravity="center"
+                android:fontFamily="@font/quest_regular"
+                android:textColor="@color/Black"
+                android:layout_marginEnd="10dp"
+                android:textSize="20sp"
+                android:background="@drawable/empty_square_shape"/>
+
+            <EditText
+                android:id="@+id/OldCredit"
+                android:layout_width="175dp"
+                android:layout_height="50dp"
+                android:hint="الساعات السابقه"
+                android:textColorHint="@color/Black"
+                android:textSize="20sp"
+                android:inputType="number"
+                android:textColor="@color/Black"
+                android:gravity="center"
+                android:fontFamily="@font/quest_regular"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/empty_square_shape"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom|center">
+
+            <Button
+                android:id="@+id/Remove"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:text="@string/remove"
+                android:textSize="20sp"
+                android:textColor="@color/Beige"
+                android:fontFamily="@font/quest_regular"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/square_shape"/>
+
+            <Button
+                android:id="@+id/Calculate"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:text="@string/calculate"
+                android:fontFamily="@font/quest_regular"
+                android:textColor="@color/Beige"
+                android:layout_marginEnd="10dp"
+                android:textSize="20sp"
+                android:background="@drawable/square_shape"/>
+
+            <Button
+                android:id="@+id/Add"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:text="@string/add"
+                android:textSize="20sp"
+                android:textColor="@color/Beige"
+                android:fontFamily="@font/quest_regular"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/square_shape"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

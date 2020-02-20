@@ -10,18 +10,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-
 import com.game.studentworld.R;
 
 public class MainFragment extends Fragment {
 
     private View view;
-    private LinearLayout mCalculate;
-    private Fragment mCalculateFragment;
     private ImageView mMainImage;
     private AnimatedVectorDrawable vectorDrawable;
+    private Button mSemesterCalculate, mTotalCalculate;
+    private Fragment mSemesterCalculateFragment, mTotalCalculateFragment;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.fragment_main, container, false);
@@ -42,14 +41,15 @@ public class MainFragment extends Fragment {
 
         init();
         Animation();
-        Calculate();
+        Intent();
 
         return view;
     }
 
     private void init(){
-        mCalculate = view.findViewById(R.id.CalculateGPA);
         mMainImage = view.findViewById(R.id.MainImage);
+        mTotalCalculate = view.findViewById(R.id.TotalCalculate);
+        mSemesterCalculate = view.findViewById(R.id.SemesterCalculate);
     }
 
     private void Animation() {
@@ -63,14 +63,24 @@ public class MainFragment extends Fragment {
         });
     }
 
-    private void Calculate() {
-        mCalculate.setOnClickListener(new View.OnClickListener() {
+    private void Intent() {
+        mSemesterCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCalculateFragment = new CalculateFragment();
+                mSemesterCalculateFragment = new SemesterCalculateFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
-                transaction.replace(R.id.Container, mCalculateFragment).addToBackStack(null).commit();
+                transaction.replace(R.id.Container, mSemesterCalculateFragment).addToBackStack(null).commit();
+            }
+        });
+
+        mTotalCalculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTotalCalculateFragment = new TotalCalculateFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
+                transaction.replace(R.id.Container, mTotalCalculateFragment).addToBackStack(null).commit();
             }
         });
     }

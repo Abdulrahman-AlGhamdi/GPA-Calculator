@@ -19,29 +19,23 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CalculateFragment extends Fragment {
+public class SemesterCalculateFragment extends Fragment {
 
     // Views
     private View view;
-    private Button mAdd;
-    private Button mRemove;
-    private Button mCalculate;
-    private int[] mGradeArray;
-    private int[] mCreditArray;
     private LinearLayout mSubject;
+    private int[] mGradeArray, mCreditArray;
+    private Button mAdd, mRemove, mCalculate;
 
     // Functions
-    private double GPA;
-    private double TotalScore;
-    private double TotalCredit;
     private int RawPosition = 0;
-    private List<Double> GradeList;
-    private List<Double> CreditList;
     private ArrayAdapter<String> adapter;
+    private List<Double> GradeList, CreditList;
+    private double GPA, TotalScore, TotalCredit;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        view = inflater.inflate(R.layout.fragment_calculate, container, false);
+        view = inflater.inflate(R.layout.fragment_semester_calculate, container, false);
 
         getActivity().getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
