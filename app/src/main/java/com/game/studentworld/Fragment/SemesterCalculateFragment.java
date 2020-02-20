@@ -1,5 +1,8 @@
 package com.game.studentworld.Fragment;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.util.Log;
@@ -28,6 +31,7 @@ public class SemesterCalculateFragment extends Fragment {
     private Button mAdd, mRemove, mCalculate;
 
     // Functions
+    private Dialog Dialog;
     private int RawPosition = 0;
     private ArrayAdapter<String> adapter;
     private List<Double> GradeList, CreditList;
@@ -61,6 +65,7 @@ public class SemesterCalculateFragment extends Fragment {
     private void init(){
         GradeList = new ArrayList<>();
         CreditList = new ArrayList<>();
+        Dialog = new Dialog(getActivity());
         mAdd = view.findViewById(R.id.Add);
         mRemove = view.findViewById(R.id.Remove);
         mCalculate = view.findViewById(R.id.Calculate);
@@ -303,33 +308,43 @@ public class SemesterCalculateFragment extends Fragment {
                     GradeList.add(GradeValue);
                 }
 
-                for (int i = 0; i < RawPosition; i++) {
-                    double Grade = GradeList.get(i);
-                    double Credit = CreditList.get(i);
-                    if (Grade > 0){
-                        double Score = (Credit*Grade);
-                        TotalCredit += Credit;
-                        TotalScore += Score;
-
-                    } else {
-                        TotalCredit += 0;
-                        TotalScore += 0;
-                    }
-                    GPA = (TotalScore/TotalCredit);
-                }
-
-                if(String.valueOf(GPA) == "NaN"){
-                    GPA = 0;
-                }
-
-                TotalCredit = 0.0;
-                TotalScore = 0.0;
-                GradeList.clear();
-                CreditList.clear();
-                DecimalFormat decimalFormat = new DecimalFormat("#.##");
-                decimalFormat.format(GPA);
-                Log.d("GPAResult", decimalFormat.format(GPA));
+                Result();
             }
         });
+    }
+
+    private void Result() {
+        for (int i = 0; i < RawPosition; i++) {
+            double Grade = GradeList.get(i);
+            double Credit = CreditList.get(i);
+            if (Grade > 0){
+                double Score = (Credit*Grade);
+                TotalCredit += Credit;
+                TotalScore += Score;
+
+            } else {
+                TotalCredit += 0;
+                TotalScore += 0;
+            }
+            GPA = (TotalScore/TotalCredit);
+        }
+
+        if(String.valueOf(GPA) == "NaN"){
+            GPA = 0;
+        }
+
+        TotalCredit = 0.0;
+        TotalScore = 0.0;
+        GradeList.clear();
+        CreditList.clear();
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        decimalFormat.format(GPA);
+
+        Dialog.setContentView(R.layout.result_popup_massege);
+        TextView ResltGPA = Dialog.findViewById(R.id.ResultGPA);
+        ResltGPA.setText(decimalFormat.format(GPA));
+        Dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Dialog.show();
+        Log.d("GPAResult", decimalFormat.format(GPA));
     }
 }
