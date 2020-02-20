@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.CalculateFragment"
-    android:background="@color/Brown"
     android:padding="15dp"
     android:orientation="vertical">
 
@@ -199,6 +198,7 @@
             android:layout_height="50dp"
             android:text="@string/remove"
             android:textSize="20sp"
+            android:textColor="@color/Beige"
             android:fontFamily="@font/quest_regular"
             android:layout_marginEnd="10dp"
             android:background="@drawable/rounded_shape"/>
@@ -209,7 +209,7 @@
             android:layout_height="50dp"
             android:text="@string/calculate"
             android:fontFamily="@font/quest_regular"
-            android:textColor="@color/Brown"
+            android:textColor="@color/Beige"
             android:layout_marginEnd="10dp"
             android:textSize="20sp"
             android:background="@drawable/rounded_shape"/>
@@ -220,6 +220,7 @@
             android:layout_height="50dp"
             android:text="@string/add"
             android:textSize="20sp"
+            android:textColor="@color/Beige"
             android:fontFamily="@font/quest_regular"
             android:layout_marginEnd="10dp"
             android:background="@drawable/rounded_shape"/>

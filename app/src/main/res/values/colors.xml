@@ -5,9 +5,7 @@
     <color name="colorAccent">#000000</color>
 
     // App Colors
-    <color name="White">#eeedeb</color>
-    <color name="Beige">#efefe9</color>
-    <color name="Green">#00949b</color>
-    <color name="Brown">#4c2a33</color>
-    <color name="Yellow">#e6a835</color>
+    <color name="Beige">#fafafa</color>
+    <color name="Black">#000000</color>
+    <color name="Blue">#22589f</color>
 </resources>

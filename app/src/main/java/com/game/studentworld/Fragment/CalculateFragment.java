@@ -1,14 +1,12 @@
 package com.game.studentworld.Fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,7 +14,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import com.game.studentworld.R;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -46,6 +43,20 @@ public class CalculateFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.fragment_calculate, container, false);
 
+        getActivity().getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        );
+
+        getActivity().getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        |View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        |View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        |View.SYSTEM_UI_FLAG_FULLSCREEN
+                        |View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        );
+
         init();
         RevealRow();
         Calculate();
@@ -63,7 +74,7 @@ public class CalculateFragment extends Fragment {
                 R.id.Grade6, R.id.Grade7, R.id.Grade8, R.id.Grade9, R.id.Grade10};
         mCreditArray = new int[] {R.id.Credit1, R.id.Credit2, R.id.Credit3, R.id.Credit4, R.id.Credit5,
                 R.id.Credit6, R.id.Credit7, R.id.Credit8, R.id.Credit9, R.id.Credit10};
-        adapter = new ArrayAdapter<String>(getActivity(), R.layout.spinner_layout, getResources().getStringArray(R.array.Grades)){
+        adapter = new ArrayAdapter<String>(getActivity(), R.layout.spinner_row_layout, getResources().getStringArray(R.array.Grades)){
             @Override
             public int getCount() {
                 return super.getCount()-1;
@@ -73,6 +84,7 @@ public class CalculateFragment extends Fragment {
     }
 
     private void RevealRow(){
+
         mAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,9 +97,9 @@ public class CalculateFragment extends Fragment {
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                             TextView grade = (TextView) view;
                             if (position == adapter.getCount()) {
-                                grade.setTextColor(Color.GRAY);
+                                grade.setTextColor(getResources().getColor(R.color.Beige));
                             } else {
-                                grade.setTextColor(getResources().getColor(R.color.Brown));
+                                grade.setTextColor(getResources().getColor(R.color.Beige));
                             }
                         }
 
@@ -151,6 +163,7 @@ public class CalculateFragment extends Fragment {
                         mSubject.setVisibility(View.VISIBLE);
                     }
                 }
+
                 if(RawPosition == 0){
                     mCalculate.setEnabled(false);
                 }else{
@@ -162,6 +175,36 @@ public class CalculateFragment extends Fragment {
         mRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                for (int GradeID : mGradeArray) {
+                    Spinner Grade = view.findViewById(GradeID);
+
+                    Grade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            TextView grade = (TextView) view;
+                            if (position == adapter.getCount()) {
+                                grade.setTextColor(getResources().getColor(R.color.Beige));
+                            } else {
+                                grade.setTextColor(getResources().getColor(R.color.Beige));
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+
+                    Grade.setAdapter(adapter);
+                    Grade.setSelection(adapter.getCount());
+                }
+
+                for (int CreditID : mCreditArray) {
+                    EditText Credit = view.findViewById(CreditID);
+                    Credit.getText().clear();
+                }
+
                 if(RawPosition <= 10 && RawPosition > 0){
 
                     RawPosition -=1;
@@ -207,6 +250,7 @@ public class CalculateFragment extends Fragment {
                         mSubject.setVisibility(View.INVISIBLE);
                     }
                 }
+
                 if(RawPosition == 0){
                     mCalculate.setEnabled(false);
                 }else{

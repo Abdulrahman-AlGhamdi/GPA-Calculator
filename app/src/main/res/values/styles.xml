@@ -4,6 +4,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="ArabicEditTextStyle">
@@ -12,9 +17,10 @@
         <item name="android:layout_width">100sp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:hint">@string/credit</item>
+        <item name="android:textColorHint">@color/Beige</item>
         <item name="android:inputType">number</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/Brown</item>
+        <item name="android:textColor">@color/Blue</item>
         <item name="android:fontFamily">@font/quest_regular</item>
         <item name="android:background">@null</item>
     </style>
@@ -26,7 +32,7 @@
         <item name="android:hint">@string/credit</item>
         <item name="android:inputType">number</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/Brown</item>
+        <item name="android:textColor">@color/Beige</item>
         <item name="android:fontFamily">@font/quest_regular</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:spinnerMode">dialog</item>

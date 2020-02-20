@@ -5,43 +5,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.MainFragment"
-    android:background="@color/Brown"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:gravity="center">
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/MainImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/main_animation_image"
+        android:repeatMode="restart"
+        android:repeatCount="infinite"
+        android:layout_gravity="center"
+        android:tint="@color/Black"/>
 
     <LinearLayout
-        android:id="@+id/CalculateGPA"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:orientation="horizontal"
-        android:background="@drawable/rounded_shape">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/CalculateGPA"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/calculate_semester"
-            android:gravity="center"
-            android:textSize="30sp"
+            android:layout_height="75dp"
+            android:orientation="horizontal"
+            android:background="@drawable/rounded_shape">
 
-            android:fontFamily="@font/quest_regular"/>
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/calculate_semester"
+                android:gravity="center"
+                android:textColor="@color/Beige"
+                android:textSize="30sp"
+                android:fontFamily="@font/quest_regular"/>
+        </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/Translate"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/rounded_shape">
-
-        <TextView
+        <LinearLayout
+            android:id="@+id/Translate"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/calculate_total"
-            android:gravity="center"
-            android:textSize="30sp"
-            android:fontFamily="@font/quest_regular"/>
+            android:layout_height="75dp"
+            android:orientation="horizontal"
+            android:background="@drawable/rounded_shape"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/calculate_total"
+                android:gravity="center"
+                android:textColor="@color/Beige"
+                android:textSize="30sp"
+                android:fontFamily="@font/quest_regular"/>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
