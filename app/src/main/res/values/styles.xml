@@ -18,7 +18,7 @@
         <item name="android:orientation">horizontal</item>
         <item name="android:background">@drawable/square_shape</item>
         <item name="android:visibility">invisible</item>
-        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
     </style>
 
     <style name="EditTextStyle">
@@ -27,14 +27,14 @@
         <item name="android:layout_width">125dp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:hint">@string/credit</item>
-        <item name="android:textColorHint">@color/Beige</item>
+        <item name="android:textColorHint">@color/Black</item>
         <item name="android:inputType">number</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/Beige</item>
+        <item name="android:textColor">@color/Black</item>
         <item name="android:maxLength">1</item>
         <item name="android:digits">123345</item>
         <item name="android:fontFamily">@font/quest_regular</item>
-        <item name="android:backgroundTint">@color/Beige</item>
+        <item name="android:background">@drawable/empty_square_shape</item>
     </style>
 
     <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner.Underlined">

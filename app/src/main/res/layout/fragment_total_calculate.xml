@@ -8,6 +8,15 @@
     android:padding="15dp"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/Back"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="start"
+        android:tint="@color/Black"
+        android:src="@drawable/back_icon"
+        android:layout_marginBottom="10dp"/>
+
     <LinearLayout
         android:id="@+id/Subject1"
         style="@style/LinearLayoutStyle">
@@ -199,7 +208,6 @@
                 android:textColorHint="@color/Black"
                 android:inputType="numberDecimal"
                 android:gravity="center"
-                android:digits="4.5321"
                 android:maxLength="4"
                 android:fontFamily="@font/quest_regular"
                 android:textColor="@color/Black"
@@ -217,6 +225,7 @@
                 android:inputType="number"
                 android:textColor="@color/Black"
                 android:gravity="center"
+                android:maxLength="3"
                 android:fontFamily="@font/quest_regular"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/empty_square_shape"/>

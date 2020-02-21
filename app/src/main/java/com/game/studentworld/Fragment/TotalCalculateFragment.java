@@ -5,18 +5,22 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-import android.util.Log;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import com.game.studentworld.EditTextFormatter.NumberTextWatcher;
 import com.game.studentworld.R;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -26,6 +30,7 @@ public class TotalCalculateFragment extends Fragment {
 
     // Views
     private View view;
+    private ImageView mBack;
     private LinearLayout mSubject;
     private EditText mOldCredit, mOldGPA;
     private int[] mGradeArray, mCreditArray;
@@ -59,6 +64,7 @@ public class TotalCalculateFragment extends Fragment {
         init();
         RevealRow();
         Calculate();
+        Intent();
 
         return view;
     }
@@ -68,10 +74,12 @@ public class TotalCalculateFragment extends Fragment {
         CreditList = new ArrayList<>();
         Dialog = new Dialog(getActivity());
         mAdd = view.findViewById(R.id.Add);
+        mBack = view.findViewById(R.id.Back);
         mRemove = view.findViewById(R.id.Remove);
         mOldGPA = view.findViewById(R.id.OldGPA);
         mCalculate = view.findViewById(R.id.Calculate);
         mOldCredit = view.findViewById(R.id.OldCredit);
+        mOldGPA.addTextChangedListener(new NumberTextWatcher(mOldGPA));
         mGradeArray = new int[] {R.id.Grade1, R.id.Grade2, R.id.Grade3, R.id.Grade4, R.id.Grade5,
                 R.id.Grade6, R.id.Grade7, R.id.Grade8, R.id.Grade9, R.id.Grade10};
         mCreditArray = new int[] {R.id.TotalCredit1, R.id.TotalCredit2, R.id.TotalCredit3, R.id.TotalCredit4, R.id.TotalCredit5,
@@ -84,21 +92,17 @@ public class TotalCalculateFragment extends Fragment {
         };
         for (int GradeID : mGradeArray) {
             Spinner Grade = view.findViewById(GradeID);
-            Grade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    TextView grade = (TextView) view;
-                    grade.setTextColor(getResources().getColor(R.color.Beige));
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
             Grade.setAdapter(adapter);
             Grade.setSelection(adapter.getCount());
         }
+        Animation animationFromRight = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_right);
+        Animation AnimationFromButtom = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_button);
+        mBack.setAnimation(animationFromRight);
+        mRemove.setAnimation(AnimationFromButtom);
+        mAdd.setAnimation(AnimationFromButtom);
+        mOldGPA.setAnimation(animationFromRight);
+        mOldCredit.setAnimation(animationFromRight);
+        mCalculate.setAnimation(AnimationFromButtom);
         mCalculate.setEnabled(false);
     }
 
@@ -323,5 +327,17 @@ public class TotalCalculateFragment extends Fragment {
         ResultGPA.setText(decimalFormat.format(GPA));
         Dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Dialog.show();
+    }
+
+    private void Intent() {
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainFragment mMainFragment = new MainFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
+                transaction.replace(R.id.Container, mMainFragment).addToBackStack(null).commit();
+            }
+        });
     }
 }

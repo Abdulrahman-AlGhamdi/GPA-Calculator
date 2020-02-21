@@ -5,15 +5,18 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-import android.util.Log;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -26,6 +29,7 @@ public class SemesterCalculateFragment extends Fragment {
 
     // Views
     private View view;
+    private ImageView mBack;
     private LinearLayout mSubject;
     private int[] mGradeArray, mCreditArray;
     private Button mAdd, mRemove, mCalculate;
@@ -57,6 +61,7 @@ public class SemesterCalculateFragment extends Fragment {
         init();
         RevealRow();
         Calculate();
+        Intent();
 
         return view;
     }
@@ -66,6 +71,7 @@ public class SemesterCalculateFragment extends Fragment {
         CreditList = new ArrayList<>();
         Dialog = new Dialog(getActivity());
         mAdd = view.findViewById(R.id.Add);
+        mBack = view.findViewById(R.id.Back);
         mRemove = view.findViewById(R.id.Remove);
         mCalculate = view.findViewById(R.id.Calculate);
         mGradeArray = new int[] {R.id.Grade1, R.id.Grade2, R.id.Grade3, R.id.Grade4, R.id.Grade5,
@@ -80,21 +86,15 @@ public class SemesterCalculateFragment extends Fragment {
         };
         for (int GradeID : mGradeArray) {
             Spinner Grade = view.findViewById(GradeID);
-            Grade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    TextView grade = (TextView) view;
-                    grade.setTextColor(getResources().getColor(R.color.Beige));
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
             Grade.setAdapter(adapter);
             Grade.setSelection(adapter.getCount());
         }
+        Animation animationFromRight = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_right);
+        Animation AnimationFromButtom = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_button);
+        mBack.setAnimation(animationFromRight);
+        mRemove.setAnimation(AnimationFromButtom);
+        mAdd.setAnimation(AnimationFromButtom);
+        mCalculate.setAnimation(AnimationFromButtom);
         mCalculate.setEnabled(false);
     }
 
@@ -302,5 +302,17 @@ public class SemesterCalculateFragment extends Fragment {
         ResultGPA.setText(decimalFormat.format(GPA));
         Dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Dialog.show();
+    }
+
+    private void Intent() {
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainFragment mMainFragment = new MainFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
+                transaction.replace(R.id.Container, mMainFragment).addToBackStack(null).commit();
+            }
+        });
     }
 }

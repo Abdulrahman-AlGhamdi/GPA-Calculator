@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,40 +13,53 @@
         android:id="@+id/MainImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/main_animation_image"
-        android:repeatMode="restart"
-        android:repeatCount="infinite"
         android:layout_gravity="center"
-        android:tint="@color/Black"/>
+        android:repeatCount="infinite"
+        android:repeatMode="restart"
+        android:src="@drawable/main_animation_image"
+        android:tint="@color/Black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/SemesterCalculate"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:layout_height="75dp"
+        android:layout_marginTop="175dp"
+        android:background="@drawable/square_shape"
+        android:fontFamily="@font/quest_regular"
+        android:gravity="center"
+        android:text="@string/calculate_semester"
+        android:textColor="@color/Beige"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainImage" />
 
-        <Button
-            android:id="@+id/SemesterCalculate"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:text="@string/calculate_semester"
-            android:gravity="center"
-            android:textColor="@color/Beige"
-            android:textSize="30sp"
-            android:fontFamily="@font/quest_regular"
-            android:background="@drawable/square_shape"/>
+    <Button
+        android:id="@+id/TotalCalculate"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/square_shape"
+        android:fontFamily="@font/quest_regular"
+        android:gravity="center"
+        android:text="@string/calculate_total"
+        android:textColor="@color/Beige"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SemesterCalculate" />
 
-            <Button
-                android:id="@+id/TotalCalculate"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:text="@string/calculate_total"
-                android:gravity="center"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/Beige"
-                android:textSize="30sp"
-                android:fontFamily="@font/quest_regular"
-                android:background="@drawable/square_shape"/>
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/Email"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center"
+        android:src="@drawable/email_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

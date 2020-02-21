@@ -1,23 +1,34 @@
 package com.game.studentworld.Fragment;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.game.studentworld.Activity.MainActivity;
 import com.game.studentworld.R;
 
 public class MainFragment extends Fragment {
 
     private View view;
-    private ImageView mMainImage;
+    private ImageView mMainImage, mEmail;
     private AnimatedVectorDrawable vectorDrawable;
     private Button mSemesterCalculate, mTotalCalculate;
     private Fragment mSemesterCalculateFragment, mTotalCalculateFragment;
@@ -47,9 +58,16 @@ public class MainFragment extends Fragment {
     }
 
     private void init(){
+        mEmail = view.findViewById(R.id.Email);
         mMainImage = view.findViewById(R.id.MainImage);
         mTotalCalculate = view.findViewById(R.id.TotalCalculate);
         mSemesterCalculate = view.findViewById(R.id.SemesterCalculate);
+        Animation appearAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.appear_animation);
+        Animation animationFromButtom = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_button);
+        mEmail.setAnimation(appearAnimation);
+        mMainImage.setAnimation(appearAnimation);
+        mTotalCalculate.setAnimation(animationFromButtom);
+        mSemesterCalculate.setAnimation(animationFromButtom);
     }
 
     private void Animation() {
@@ -81,6 +99,22 @@ public class MainFragment extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
                 transaction.replace(R.id.Container, mTotalCalculateFragment).addToBackStack(null).commit();
+            }
+        });
+
+        mEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String SendMail = "mailto:XxD7ooom.SSxX@Gmail.Com";
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse(SendMail));
+
+                try {
+                    startActivity(emailIntent);
+                } catch (ActivityNotFoundException e) {
+
+                }
             }
         });
     }
