@@ -35,8 +35,8 @@ public class TotalCalculateFragment extends Fragment {
     private Dialog Dialog;
     private int RawPosition = 0;
     private ArrayAdapter<String> adapter;
+    private double TotalScore, TotalCredit;
     private List<Double> GradeList, CreditList;
-    private double GPA, TotalScore, TotalCredit;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -82,6 +82,23 @@ public class TotalCalculateFragment extends Fragment {
                 return super.getCount()-1;
             }
         };
+        for (int GradeID : mGradeArray) {
+            Spinner Grade = view.findViewById(GradeID);
+            Grade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    TextView grade = (TextView) view;
+                    grade.setTextColor(getResources().getColor(R.color.Beige));
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+            Grade.setAdapter(adapter);
+            Grade.setSelection(adapter.getCount());
+        }
         mCalculate.setEnabled(false);
     }
 
@@ -90,38 +107,7 @@ public class TotalCalculateFragment extends Fragment {
         mAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                for (int GradeID : mGradeArray) {
-                    Spinner Grade = view.findViewById(GradeID);
-
-                    Grade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            TextView grade = (TextView) view;
-                            if (position == adapter.getCount()) {
-                                grade.setTextColor(getResources().getColor(R.color.Beige));
-                            } else {
-                                grade.setTextColor(getResources().getColor(R.color.Beige));
-                            }
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
-
-                        }
-                    });
-
-                    Grade.setAdapter(adapter);
-                    Grade.setSelection(adapter.getCount());
-                }
-
-                for (int CreditID : mCreditArray) {
-                    EditText Credit = view.findViewById(CreditID);
-                    Credit.getText().clear();
-                }
-
                 if(RawPosition < 10 && RawPosition >= 0){
-
                     RawPosition +=1;
 
                     if (RawPosition == 1) {
@@ -178,36 +164,16 @@ public class TotalCalculateFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                for (int GradeID : mGradeArray) {
+                if(RawPosition <= 10 && RawPosition > 0){
+
+                    int GradeID = mGradeArray[RawPosition-1];
                     Spinner Grade = view.findViewById(GradeID);
-
-                    Grade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            TextView grade = (TextView) view;
-                            if (position == adapter.getCount()) {
-                                grade.setTextColor(getResources().getColor(R.color.Beige));
-                            } else {
-                                grade.setTextColor(getResources().getColor(R.color.Beige));
-                            }
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
-
-                        }
-                    });
-
                     Grade.setAdapter(adapter);
                     Grade.setSelection(adapter.getCount());
-                }
 
-                for (int CreditID : mCreditArray) {
+                    int CreditID = mCreditArray[RawPosition-1];
                     EditText Credit = view.findViewById(CreditID);
                     Credit.getText().clear();
-                }
-
-                if(RawPosition <= 10 && RawPosition > 0){
 
                     RawPosition -=1;
 
@@ -322,7 +288,6 @@ public class TotalCalculateFragment extends Fragment {
         });
     }
 
-
     private void Result() {
 
         for (int i = 0; i < RawPosition; i++) {
@@ -332,7 +297,6 @@ public class TotalCalculateFragment extends Fragment {
                 double Score = (Credit*Grade);
                 TotalCredit += Credit;
                 TotalScore += Score;
-
             } else {
                 TotalCredit += 0;
                 TotalScore += 0;
@@ -342,7 +306,7 @@ public class TotalCalculateFragment extends Fragment {
         double OldGPA = Double.parseDouble(mOldGPA.getText().toString());
         double OldCredit = Double.parseDouble(mOldCredit.getText().toString());
         double OldScore = OldGPA*OldCredit;
-        GPA = ((TotalScore+OldScore)/(TotalCredit+OldCredit));
+        double GPA = ((TotalScore + OldScore) / (TotalCredit + OldCredit));
 
         if(String.valueOf(GPA) == "NaN"){
             GPA = 0;
@@ -352,14 +316,12 @@ public class TotalCalculateFragment extends Fragment {
         TotalScore = 0.0;
         GradeList.clear();
         CreditList.clear();
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        decimalFormat.format(GPA);
 
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         Dialog.setContentView(R.layout.result_popup_massege);
-        TextView ResltGPA = Dialog.findViewById(R.id.ResultGPA);
-        ResltGPA.setText(decimalFormat.format(GPA));
+        TextView ResultGPA = Dialog.findViewById(R.id.ResultGPA);
+        ResultGPA.setText(decimalFormat.format(GPA));
         Dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Dialog.show();
-        Log.d("GPAResult", decimalFormat.format(GPA));
     }
 }
