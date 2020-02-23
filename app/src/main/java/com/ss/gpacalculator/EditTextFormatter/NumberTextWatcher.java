@@ -3,7 +3,6 @@ package com.ss.gpacalculator.EditTextFormatter;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
-
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
