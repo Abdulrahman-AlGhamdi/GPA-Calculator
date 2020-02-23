@@ -9,7 +9,7 @@ import java.util.Locale;
 
 public class NumberTextWatcher implements TextWatcher {
 
-    EditText editText;
+    private EditText editText;
 
     public NumberTextWatcher(EditText editText) {
         this.editText = editText;

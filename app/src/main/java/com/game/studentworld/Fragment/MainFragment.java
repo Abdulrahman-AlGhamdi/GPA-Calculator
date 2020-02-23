@@ -25,6 +25,8 @@ import android.widget.Toast;
 import com.game.studentworld.Activity.MainActivity;
 import com.game.studentworld.R;
 
+import java.util.Objects;
+
 public class MainFragment extends Fragment {
 
     private View view;
@@ -35,20 +37,6 @@ public class MainFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.fragment_main, container, false);
-
-        getActivity().getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        );
-
-        getActivity().getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        |View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        |View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        |View.SYSTEM_UI_FLAG_FULLSCREEN
-                        |View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        );
 
         init();
         Animation();
@@ -86,6 +74,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mSemesterCalculateFragment = new SemesterCalculateFragment();
+                assert getFragmentManager() != null;
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
                 transaction.replace(R.id.Container, mSemesterCalculateFragment).addToBackStack(null).commit();
@@ -96,6 +85,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mTotalCalculateFragment = new TotalCalculateFragment();
+                assert getFragmentManager() != null;
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
                 transaction.replace(R.id.Container, mTotalCalculateFragment).addToBackStack(null).commit();
@@ -113,7 +103,7 @@ public class MainFragment extends Fragment {
                 try {
                     startActivity(emailIntent);
                 } catch (ActivityNotFoundException e) {
-
+                    e.printStackTrace();
                 }
             }
         });

@@ -20,37 +20,38 @@
         android:tint="@color/Black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"/>
 
     <Button
         android:id="@+id/SemesterCalculate"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_marginTop="175dp"
-        android:background="@drawable/square_shape"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_square_shape"
         android:fontFamily="@font/quest_regular"
-        android:gravity="center"
         android:text="@string/calculate_semester"
         android:textColor="@color/Beige"
         android:textSize="30sp"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainImage" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
         android:id="@+id/TotalCalculate"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/square_shape"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_square_shape"
         android:fontFamily="@font/quest_regular"
-        android:gravity="center"
         android:text="@string/calculate_total"
+        android:textAllCaps="false"
         android:textColor="@color/Beige"
         android:textSize="30sp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SemesterCalculate" />
+        app:layout_constraintTop_toBottomOf="@+id/SemesterCalculate"/>
 
     <ImageView
         android:id="@+id/Email"
@@ -60,6 +61,7 @@
         android:src="@drawable/email_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

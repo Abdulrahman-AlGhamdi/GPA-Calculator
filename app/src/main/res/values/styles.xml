@@ -6,9 +6,9 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowContentTransitions">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+<!--        <item name="android:windowContentTransitions">true</item>-->
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
+<!--        <item name="android:windowTranslucentNavigation">true</item>-->
         <item name="android:gravity">center</item>
     </style>
 
@@ -16,7 +16,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:background">@drawable/square_shape</item>
+        <item name="android:background">@drawable/black_square_shape</item>
         <item name="android:visibility">invisible</item>
         <item name="android:layout_marginBottom">5dp</item>
     </style>
@@ -34,7 +34,7 @@
         <item name="android:maxLength">1</item>
         <item name="android:digits">123345</item>
         <item name="android:fontFamily">@font/quest_regular</item>
-        <item name="android:background">@drawable/empty_square_shape</item>
+        <item name="android:background">@drawable/white_square_shape</item>
     </style>
 
     <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner.Underlined">
@@ -52,9 +52,20 @@
         <item name="android:backgroundTint">@color/Beige</item>
     </style>
 
+    <style name="ButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/Beige</item>
+        <item name="android:fontFamily">@font/quest_regular</item>
+        <item name="android:background">@drawable/black_square_shape</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
     <style name="TextViewStyle">
         <item name="android:layout_width">30dp</item>
         <item name="android:layout_height">30dp</item>
+        <item name="android:layout_marginRight">10dp</item>
         <item name="android:textColor">@color/Black</item>
         <item name="android:background">@drawable/circle_shape</item>
     </style>

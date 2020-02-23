@@ -24,6 +24,7 @@ import com.game.studentworld.R;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class SemesterCalculateFragment extends Fragment {
 
@@ -44,20 +45,6 @@ public class SemesterCalculateFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.fragment_semester_calculate, container, false);
 
-        getActivity().getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        );
-
-        getActivity().getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        |View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        |View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        |View.SYSTEM_UI_FLAG_FULLSCREEN
-                        |View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        );
-
         init();
         RevealRow();
         Calculate();
@@ -69,15 +56,15 @@ public class SemesterCalculateFragment extends Fragment {
     private void init(){
         GradeList = new ArrayList<>();
         CreditList = new ArrayList<>();
-        Dialog = new Dialog(getActivity());
+        Dialog = new Dialog(Objects.requireNonNull(getActivity()));
         mAdd = view.findViewById(R.id.Add);
         mBack = view.findViewById(R.id.Back);
         mRemove = view.findViewById(R.id.Remove);
         mCalculate = view.findViewById(R.id.Calculate);
         mGradeArray = new int[] {R.id.Grade1, R.id.Grade2, R.id.Grade3, R.id.Grade4, R.id.Grade5,
-                R.id.Grade6, R.id.Grade7, R.id.Grade8, R.id.Grade9, R.id.Grade10};
+                R.id.Grade6, R.id.Grade7, R.id.Grade8, R.id.Grade9};
         mCreditArray = new int[] {R.id.Credit1, R.id.Credit2, R.id.Credit3, R.id.Credit4, R.id.Credit5,
-                R.id.Credit6, R.id.Credit7, R.id.Credit8, R.id.Credit9, R.id.Credit10};
+                R.id.Credit6, R.id.Credit7, R.id.Credit8, R.id.Credit9};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.spinner_row_layout, getResources().getStringArray(R.array.Grades)) {
             @Override
             public int getCount() {
@@ -103,7 +90,7 @@ public class SemesterCalculateFragment extends Fragment {
         mAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(RawPosition < 10 && RawPosition >= 0){
+                if(RawPosition < 9 && RawPosition >= 0){
 
                     RawPosition +=1;
 
@@ -143,10 +130,6 @@ public class SemesterCalculateFragment extends Fragment {
                         mSubject = view.findViewById(R.id.Subject9);
                         mSubject.setVisibility(View.VISIBLE);
                     }
-                    if (RawPosition == 10) {
-                        mSubject = view.findViewById(R.id.Subject10);
-                        mSubject.setVisibility(View.VISIBLE);
-                    }
                 }
 
                 if(RawPosition == 0){
@@ -161,7 +144,7 @@ public class SemesterCalculateFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if(RawPosition <= 10 && RawPosition > 0){
+                if(RawPosition <= 9 && RawPosition > 0){
 
                     RawPosition -=1;
 
@@ -199,10 +182,6 @@ public class SemesterCalculateFragment extends Fragment {
                     }
                     if (RawPosition == 8) {
                         mSubject = view.findViewById(R.id.Subject9);
-                        mSubject.setVisibility(View.INVISIBLE);
-                    }
-                    if (RawPosition == 9) {
-                        mSubject = view.findViewById(R.id.Subject10);
                         mSubject.setVisibility(View.INVISIBLE);
                     }
                 }
@@ -287,7 +266,7 @@ public class SemesterCalculateFragment extends Fragment {
 
         double GPA = (TotalScore / TotalCredit);
 
-        if(String.valueOf(GPA) == "NaN"){
+        if(String.valueOf(GPA).equals("NaN")){
             GPA = 0;
         }
 
@@ -300,7 +279,7 @@ public class SemesterCalculateFragment extends Fragment {
         Dialog.setContentView(R.layout.result_popup_massege);
         TextView ResultGPA = Dialog.findViewById(R.id.ResultGPA);
         ResultGPA.setText(decimalFormat.format(GPA));
-        Dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Objects.requireNonNull(Dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Dialog.show();
     }
 
@@ -309,6 +288,7 @@ public class SemesterCalculateFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MainFragment mMainFragment = new MainFragment();
+                assert getFragmentManager() != null;
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
                 transaction.replace(R.id.Container, mMainFragment).addToBackStack(null).commit();
