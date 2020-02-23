@@ -1,4 +1,4 @@
-package com.game.studentworld.Activity;
+package com.game.gpacalculator.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -6,10 +6,9 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.TextView;
-import com.game.studentworld.R;
+
+import com.game.gpacalculator.R;
 
 public class SplashActivity extends AppCompatActivity {
 

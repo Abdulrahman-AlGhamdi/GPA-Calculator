@@ -1,15 +1,14 @@
-package com.game.studentworld.Activity;
+package com.game.gpacalculator.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
 
-import com.game.studentworld.Fragment.MainFragment;
-import com.game.studentworld.R;
+import com.game.gpacalculator.Fragment.MainFragment;
+import com.game.gpacalculator.R;
 
 public class MainActivity extends AppCompatActivity {
 

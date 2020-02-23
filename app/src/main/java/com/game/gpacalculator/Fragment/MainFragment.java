@@ -1,4 +1,4 @@
-package com.game.studentworld.Fragment;
+package com.game.gpacalculator.Fragment;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -10,22 +10,15 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.game.studentworld.Activity.MainActivity;
-import com.game.studentworld.R;
-
-import java.util.Objects;
+import com.game.gpacalculator.R;
 
 public class MainFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.game.studentworld.EditTextFormatter;
+package com.game.gpacalculator.EditTextFormatter;
 
 import android.text.Editable;
 import android.text.TextWatcher;
