@@ -31,6 +31,10 @@
             android:id="@+id/Subject1"
             style="@style/LinearLayoutStyle">
 
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/one" />
+
             <EditText
                 android:id="@+id/TotalCredit1"
                 style="@style/EditTextStyle" />
@@ -38,15 +42,15 @@
             <Spinner
                 android:id="@+id/Grade1"
                 style="@style/SpinnerStyle" />
-
-            <TextView
-                style="@style/TextViewStyle"
-                android:text="@string/one" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/Subject2"
             style="@style/LinearLayoutStyle">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/two" />
 
             <EditText
                 android:id="@+id/TotalCredit2"
@@ -55,15 +59,15 @@
             <Spinner
                 android:id="@+id/Grade2"
                 style="@style/SpinnerStyle" />
-
-            <TextView
-                style="@style/TextViewStyle"
-                android:text="@string/two" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/Subject3"
             style="@style/LinearLayoutStyle">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/three" />
 
             <EditText
                 android:id="@+id/TotalCredit3"
@@ -72,15 +76,15 @@
             <Spinner
                 android:id="@+id/Grade3"
                 style="@style/SpinnerStyle" />
-
-            <TextView
-                style="@style/TextViewStyle"
-                android:text="@string/three" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/Subject4"
             style="@style/LinearLayoutStyle">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/four" />
 
             <EditText
                 android:id="@+id/TotalCredit4"
@@ -89,15 +93,15 @@
             <Spinner
                 android:id="@+id/Grade4"
                 style="@style/SpinnerStyle" />
-
-            <TextView
-                style="@style/TextViewStyle"
-                android:text="@string/four" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/Subject5"
             style="@style/LinearLayoutStyle">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/five" />
 
             <EditText
                 android:id="@+id/TotalCredit5"
@@ -106,15 +110,15 @@
             <Spinner
                 android:id="@+id/Grade5"
                 style="@style/SpinnerStyle" />
-
-            <TextView
-                style="@style/TextViewStyle"
-                android:text="@string/five" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/Subject6"
             style="@style/LinearLayoutStyle">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/six" />
 
             <EditText
                 android:id="@+id/TotalCredit6"
@@ -123,15 +127,15 @@
             <Spinner
                 android:id="@+id/Grade6"
                 style="@style/SpinnerStyle" />
-
-            <TextView
-                style="@style/TextViewStyle"
-                android:text="@string/six" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/Subject7"
             style="@style/LinearLayoutStyle">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/seven" />
 
             <EditText
                 android:id="@+id/TotalCredit7"
@@ -140,15 +144,15 @@
             <Spinner
                 android:id="@+id/Grade7"
                 style="@style/SpinnerStyle" />
-
-            <TextView
-                style="@style/TextViewStyle"
-                android:text="@string/seven" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/Subject8"
             style="@style/LinearLayoutStyle">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/eight" />
 
             <EditText
                 android:id="@+id/TotalCredit8"
@@ -157,15 +161,15 @@
             <Spinner
                 android:id="@+id/Grade8"
                 style="@style/SpinnerStyle" />
-
-            <TextView
-                style="@style/TextViewStyle"
-                android:text="@string/eight" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/Subject9"
             style="@style/LinearLayoutStyle">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/nine" />
 
             <EditText
                 android:id="@+id/TotalCredit9"
@@ -174,10 +178,6 @@
             <Spinner
                 android:id="@+id/Grade9"
                 style="@style/SpinnerStyle" />
-
-            <TextView
-                style="@style/TextViewStyle"
-                android:text="@string/nine" />
         </LinearLayout>
 
     </LinearLayout>
@@ -224,32 +224,29 @@
         app:layout_constraintStart_toEndOf="@+id/OldGPA" />
 
     <Button
-        android:id="@+id/Remove"
-        android:text="@string/remove"
+        android:id="@+id/Add"
         style="@style/ButtonStyle"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/add"
         app:layout_constraintEnd_toStartOf="@+id/Calculate"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Calculate" />
 
     <Button
         android:id="@+id/Calculate"
-        android:text="@string/calculate"
+        style="@style/ButtonStyle"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        style="@style/ButtonStyle"
+        android:text="@string/calculate"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/Add"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/Remove" />
+        app:layout_constraintEnd_toStartOf="@+id/Remove"
+        app:layout_constraintStart_toEndOf="@+id/Add" />
 
     <Button
-        android:id="@+id/Add"
-        android:text="@string/add"
+        android:id="@+id/Remove"
         style="@style/ButtonStyle"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/remove"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/Calculate" />
+        app:layout_constraintStart_toEndOf="@+id/Calculate"
+        app:layout_constraintTop_toTopOf="@+id/Calculate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

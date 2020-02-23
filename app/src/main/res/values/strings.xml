@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">حساب معدل الطالب</string>
+    <string name="app_name">حساب المعدل</string>
 
     // Main Screen Strings
     <string name="calculate_semester">فصلي</string>
