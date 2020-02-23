@@ -1,11 +1,9 @@
-package com.game.gpacalculator.Fragment;
+package com.ss.gpacalculator.Fragment;
 
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +16,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import com.game.gpacalculator.EditTextFormatter.NumberTextWatcher;
-import com.game.gpacalculator.R;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import com.ss.gpacalculator.EditTextFormatter.NumberTextWatcher;
+import com.ss.gpacalculator.R;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;

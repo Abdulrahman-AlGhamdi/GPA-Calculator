@@ -1,4 +1,4 @@
-package com.game.gpacalculator.Fragment;
+package com.ss.gpacalculator.Fragment;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -7,9 +7,6 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +14,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-
-import com.game.gpacalculator.R;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import com.ss.gpacalculator.R;
 
 public class MainFragment extends Fragment {
 
