@@ -12,12 +12,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+
 import com.ss.gpacalculator.EditTextFormatter.NumberTextWatcher;
 import com.ss.gpacalculator.R;
 import java.text.DecimalFormat;
@@ -29,7 +28,6 @@ public class TotalCalculateFragment extends Fragment {
 
     // Views
     private View view;
-    private ImageView mBack;
     private LinearLayout mSubject;
     private EditText mOldCredit, mOldGPA;
     private int[] mGradeArray, mCreditArray;
@@ -49,7 +47,6 @@ public class TotalCalculateFragment extends Fragment {
         init();
         RevealRow();
         Calculate();
-        Intent();
 
         return view;
     }
@@ -59,7 +56,6 @@ public class TotalCalculateFragment extends Fragment {
         CreditList = new ArrayList<>();
         Dialog = new Dialog(Objects.requireNonNull(getActivity()));
         mAdd = view.findViewById(R.id.Add);
-        mBack = view.findViewById(R.id.Back);
         mRemove = view.findViewById(R.id.Remove);
         mOldGPA = view.findViewById(R.id.OldGPA);
         mCalculate = view.findViewById(R.id.Calculate);
@@ -80,14 +76,12 @@ public class TotalCalculateFragment extends Fragment {
             Grade.setAdapter(adapter);
             Grade.setSelection(adapter.getCount());
         }
-        Animation animationFromRight = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_right);
-        Animation AnimationFromButtom = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_button);
-        mBack.setAnimation(animationFromRight);
-        mRemove.setAnimation(AnimationFromButtom);
-        mAdd.setAnimation(AnimationFromButtom);
-        mOldGPA.setAnimation(animationFromRight);
-        mOldCredit.setAnimation(animationFromRight);
-        mCalculate.setAnimation(AnimationFromButtom);
+        Animation AnimationFromButton = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_button);
+        mRemove.setAnimation(AnimationFromButton);
+        mAdd.setAnimation(AnimationFromButton);
+        mOldGPA.setAnimation(AnimationFromButton);
+        mOldCredit.setAnimation(AnimationFromButton);
+        mCalculate.setAnimation(AnimationFromButton);
         mCalculate.setEnabled(false);
     }
 
@@ -304,18 +298,5 @@ public class TotalCalculateFragment extends Fragment {
         ResultGPA.setText(decimalFormat.format(GPA));
         Objects.requireNonNull(Dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Dialog.show();
-    }
-
-    private void Intent() {
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MainFragment mMainFragment = new MainFragment();
-                assert getFragmentManager() != null;
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
-                transaction.replace(R.id.Container, mMainFragment).addToBackStack(null).commit();
-            }
-        });
     }
 }

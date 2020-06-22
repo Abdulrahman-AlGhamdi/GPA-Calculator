@@ -8,15 +8,6 @@
     android:padding="15dp"
     tools:context=".Fragment.SemesterCalculateFragment">
 
-    <ImageView
-        android:id="@+id/Back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/back_icon"
-        android:tint="@color/Black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

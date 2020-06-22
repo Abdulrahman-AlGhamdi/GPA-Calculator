@@ -12,12 +12,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import com.ss.gpacalculator.R;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -28,7 +26,6 @@ public class SemesterCalculateFragment extends Fragment {
 
     // Views
     private View view;
-    private ImageView mBack;
     private LinearLayout mSubject;
     private int[] mGradeArray, mCreditArray;
     private Button mAdd, mRemove, mCalculate;
@@ -46,7 +43,6 @@ public class SemesterCalculateFragment extends Fragment {
         init();
         RevealRow();
         Calculate();
-        Intent();
 
         return view;
     }
@@ -56,7 +52,6 @@ public class SemesterCalculateFragment extends Fragment {
         CreditList = new ArrayList<>();
         Dialog = new Dialog(Objects.requireNonNull(getActivity()));
         mAdd = view.findViewById(R.id.Add);
-        mBack = view.findViewById(R.id.Back);
         mRemove = view.findViewById(R.id.Remove);
         mCalculate = view.findViewById(R.id.Calculate);
         mGradeArray = new int[] {R.id.Grade1, R.id.Grade2, R.id.Grade3, R.id.Grade4, R.id.Grade5,
@@ -76,7 +71,6 @@ public class SemesterCalculateFragment extends Fragment {
         }
         Animation animationFromRight = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_right);
         Animation AnimationFromButtom = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_button);
-        mBack.setAnimation(animationFromRight);
         mRemove.setAnimation(AnimationFromButtom);
         mAdd.setAnimation(AnimationFromButtom);
         mCalculate.setAnimation(AnimationFromButtom);
@@ -279,18 +273,5 @@ public class SemesterCalculateFragment extends Fragment {
         ResultGPA.setText(decimalFormat.format(GPA));
         Objects.requireNonNull(Dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Dialog.show();
-    }
-
-    private void Intent() {
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MainFragment mMainFragment = new MainFragment();
-                assert getFragmentManager() != null;
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
-                transaction.replace(R.id.Container, mMainFragment).addToBackStack(null).commit();
-            }
-        });
     }
 }
