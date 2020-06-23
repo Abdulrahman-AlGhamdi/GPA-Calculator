@@ -69,11 +69,10 @@ public class SemesterCalculateFragment extends Fragment {
             Grade.setAdapter(adapter);
             Grade.setSelection(adapter.getCount());
         }
-        Animation animationFromRight = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_right);
-        Animation AnimationFromButtom = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_button);
-        mRemove.setAnimation(AnimationFromButtom);
-        mAdd.setAnimation(AnimationFromButtom);
-        mCalculate.setAnimation(AnimationFromButtom);
+        Animation AnimationFromButton = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_from_button);
+        mRemove.setAnimation(AnimationFromButton);
+        mAdd.setAnimation(AnimationFromButton);
+        mCalculate.setAnimation(AnimationFromButton);
         mCalculate.setEnabled(false);
     }
 

@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
-
 import com.ss.gpacalculator.EditTextFormatter.NumberTextWatcher;
 import com.ss.gpacalculator.R;
 import java.text.DecimalFormat;
