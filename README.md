@@ -1,6 +1,6 @@
-# GpaCalculator
+# Gpa Calculator
 
-This application help the user to:
+This application helps the user to:
 * Calculate the CGPA & quarterly average.
 * Choose as many subjects as you want to calculate the average.
 * English & Arabic are supported depending on the device language.
