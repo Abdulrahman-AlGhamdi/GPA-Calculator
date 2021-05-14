@@ -1,4 +1,4 @@
-# Gpa Calculator
+# GPA Calculator
 
 This application helps the user to:
 * Calculate the CGPA & quarterly average.
