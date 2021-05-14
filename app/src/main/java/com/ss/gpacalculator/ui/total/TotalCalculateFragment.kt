@@ -11,17 +11,19 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.ss.gpacalculator.R
 import com.ss.gpacalculator.adapter.GpaAdapter
 import com.ss.gpacalculator.databinding.FragmentTotalCalculateBinding
 import com.ss.gpacalculator.model.SubjectModel
+import com.ss.gpacalculator.ui.CalculateViewModel
 import java.text.DecimalFormat
 
 class TotalCalculateFragment : Fragment() {
 
     private var _binding: FragmentTotalCalculateBinding? = null
     private val binding get() = _binding!!
-    var subjectList = ArrayList<SubjectModel>()
+    private val viewModel: CalculateViewModel by viewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -37,28 +39,33 @@ class TotalCalculateFragment : Fragment() {
 
     private fun init() {
         GpaAdapter().apply {
-            val subject = SubjectModel(1, 0, 0)
-            subjectList.add(subject)
-            this.differ.submitList(subjectList)
-            binding.totalList.adapter = this
+            if (viewModel.totalSubjectList.isNotEmpty()) {
+                this.differ.submitList(viewModel.totalSubjectList)
+                binding.totalList.adapter = this
+            } else {
+                val subject = SubjectModel(1, 0, 0)
+                viewModel.totalSubjectList.add(subject)
+                this.differ.submitList(viewModel.totalSubjectList)
+                binding.totalList.adapter = this
+            }
         }
     }
 
     private fun addOrDeleteListItem() {
         binding.add.setOnClickListener {
-            val subject = SubjectModel((subjectList.size + 1), 0, 0)
-            subjectList.add(subject)
+            val subject = SubjectModel((viewModel.totalSubjectList.size + 1), 0, 0)
+            viewModel.totalSubjectList.add(subject)
             GpaAdapter().apply {
-                this.differ.submitList(subjectList)
+                this.differ.submitList(viewModel.totalSubjectList)
                 binding.totalList.adapter = this
             }
         }
 
         binding.remove.setOnClickListener {
-            if (subjectList.isNotEmpty()) {
-                subjectList.removeLast()
+            if (viewModel.totalSubjectList.isNotEmpty()) {
+                viewModel.totalSubjectList.removeLast()
                 GpaAdapter().apply {
-                    this.differ.submitList(subjectList)
+                    this.differ.submitList(viewModel.totalSubjectList)
                     binding.totalList.adapter = this
                 }
             }
@@ -86,22 +93,24 @@ class TotalCalculateFragment : Fragment() {
 
                     var totalCredit = 0.0
                     var totalScore = 0.0
-                    subjectList.forEach {
-                        val credit = it.credit.toDouble()
-                        val grade = when (it.grade) {
-                            1 -> 5.0
-                            2 -> 4.75
-                            3 -> 4.5
-                            4 -> 4.0
-                            5 -> 3.5
-                            6 -> 3.0
-                            7 -> 2.5
-                            8 -> 2.0
-                            9 -> 1.0
-                            else -> 0.0
+                    viewModel.totalSubjectList.forEach {
+                        if (it.grade != 0 && it.credit != 0) {
+                            val credit = it.credit.toDouble()
+                            val grade = when (it.grade) {
+                                1 -> 5.0
+                                2 -> 4.75
+                                3 -> 4.5
+                                4 -> 4.0
+                                5 -> 3.5
+                                6 -> 3.0
+                                7 -> 2.5
+                                8 -> 2.0
+                                9 -> 1.0
+                                else -> 0.0
+                            }
+                            totalCredit += credit
+                            totalScore += credit * grade
                         }
-                        totalCredit += credit
-                        totalScore += credit * grade
                     }
                     val oldGpa = binding.oldGpa.text.toString().toDouble()
                     val oldCredit: Double = binding.oldCredit.text.toString().toDouble()
