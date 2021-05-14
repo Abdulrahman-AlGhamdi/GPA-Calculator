@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">حساب المعدل</string>
+
+    <!-- Home Fragment Strings -->
+    <string name="calculate_semester">فصلي</string>
+    <string name="calculate_total">تراكمي</string>
+
+    <!-- Overall & Semester Fragment Strings -->
+    <string name="add">إضافه</string>
+    <string name="remove">حذف</string>
+    <string name="gpa">المعدل</string>
+    <string name="credit">الساعات</string>
+    <string name="calculate">حساب المعدل</string>
+    <string name="old_gpa">المعدل السابق</string>
+    <string name="old_credit">الساعات السابقه</string>
+
+    <!-- Spinner Strings Array -->
+    <string-array name="grades">
+        <item>A+</item>
+        <item>A</item>
+        <item>B+</item>
+        <item>B</item>
+        <item>C+</item>
+        <item>C</item>
+        <item>D+</item>
+        <item>D</item>
+        <item>F</item>
+        <item>الدرجه</item>
+    </string-array>
+
+</resources>
