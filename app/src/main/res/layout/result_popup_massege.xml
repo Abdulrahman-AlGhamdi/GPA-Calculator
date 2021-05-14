@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="150dp"
     android:layout_height="150dp"
-    android:background="@drawable/popup_shape"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    app:cardCornerRadius="8dp">
 
-    <TextView
-        android:id="@+id/ResultGPA"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:textSize="40sp"
-        android:textColor="@color/Beige"/>
+        android:textSize="40sp" />
 
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>
