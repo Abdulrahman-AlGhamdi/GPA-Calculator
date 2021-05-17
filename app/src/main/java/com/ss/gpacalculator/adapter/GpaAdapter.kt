@@ -37,7 +37,10 @@ class GpaAdapter : RecyclerView.Adapter<GpaAdapter.ViewHolder>() {
 
             binding.credit.addTextChangedListener {
                 it?.let {
-                    subject.credit = if (it.isEmpty()) 0 else it.toString().toInt()
+                    subject.credit = if (it.isEmpty()) 0 else {
+                        binding.credit.clearFocus()
+                        it.toString().toInt()
+                    }
                 }
             }
 

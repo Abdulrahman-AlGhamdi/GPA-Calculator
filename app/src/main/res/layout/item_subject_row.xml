@@ -19,6 +19,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:gravity="center"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/credit_header"
             app:layout_constraintEnd_toStartOf="@+id/credit_header"
             app:layout_constraintHorizontal_weight="1"

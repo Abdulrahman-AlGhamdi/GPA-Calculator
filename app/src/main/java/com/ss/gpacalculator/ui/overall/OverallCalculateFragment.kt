@@ -1,4 +1,4 @@
-package com.ss.gpacalculator.ui.total
+package com.ss.gpacalculator.ui.overall
 
 import android.app.Dialog
 import android.content.Context
@@ -14,21 +14,21 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.ss.gpacalculator.R
 import com.ss.gpacalculator.adapter.GpaAdapter
-import com.ss.gpacalculator.databinding.FragmentTotalCalculateBinding
+import com.ss.gpacalculator.databinding.FragmentOverallCalculateBinding
 import com.ss.gpacalculator.model.SubjectModel
 import com.ss.gpacalculator.ui.CalculateViewModel
 import java.text.DecimalFormat
 
-class TotalCalculateFragment : Fragment() {
+class OverallCalculateFragment : Fragment() {
 
-    private var _binding: FragmentTotalCalculateBinding? = null
+    private var _binding: FragmentOverallCalculateBinding? = null
     private val binding get() = _binding!!
     private val viewModel: CalculateViewModel by viewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentTotalCalculateBinding.inflate(inflater, container, false)
+        _binding = FragmentOverallCalculateBinding.inflate(inflater, container, false)
 
         init()
         addOrDeleteListItem()
