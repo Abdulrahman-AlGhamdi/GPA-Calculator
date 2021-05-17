@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.total.TotalCalculateFragment">
+    tools:context=".ui.overall.OverallCalculateFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/total_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
+        android:paddingTop="4dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/old_gpa_header"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,11 +34,11 @@
             android:id="@+id/old_gpa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:digits="12345"
+            android:digits="1.2345"
             android:fontFamily="@font/quest_regular"
             android:hint="@string/old_gpa"
-            android:inputType="number"
-            android:maxLength="1"
+            android:inputType="text"
+            android:maxLength="4"
             android:minHeight="58dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -69,9 +70,7 @@
         android:id="@+id/add"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:background="@drawable/black_square_shape"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/quest_regular"
         android:text="@string/add"
         android:textAllCaps="false"
@@ -86,10 +85,7 @@
         android:id="@+id/calculate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/black_square_shape"
+        android:layout_margin="8dp"
         android:fontFamily="@font/quest_regular"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -98,16 +94,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/remove"
-        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toEndOf="@+id/add" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/remove"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:background="@drawable/black_square_shape"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/quest_regular"
         android:text="@string/remove"
         android:textAllCaps="false"
