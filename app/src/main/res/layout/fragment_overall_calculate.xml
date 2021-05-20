@@ -7,7 +7,7 @@
     tools:context=".ui.overall.OverallCalculateFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/total_list"
+        android:id="@+id/overall_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
@@ -20,14 +20,15 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/old_gpa_header"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:fontFamily="@font/quest_regular"
-        app:layout_constraintBottom_toTopOf="@+id/add"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/calculate"
         app:layout_constraintEnd_toStartOf="@+id/old_credit_header"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -35,9 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="1.2345"
-            android:fontFamily="@font/quest_regular"
             android:hint="@string/old_gpa"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="4"
             android:minHeight="58dp" />
 
@@ -45,20 +45,21 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/old_credit_header"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:fontFamily="@font/quest_regular"
-        app:layout_constraintBottom_toTopOf="@+id/remove"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/calculate"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/old_gpa_header">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/old_credit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/quest_regular"
             android:hint="@string/old_credit"
             android:inputType="number"
             android:maxLength="3"
@@ -67,49 +68,16 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/add"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/quest_regular"
-        android:text="@string/add"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/calculate"
-        app:layout_constraintEnd_toStartOf="@+id/calculate"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/calculate" />
-
-    <com.google.android.material.button.MaterialButton
         android:id="@+id/calculate"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:fontFamily="@font/quest_regular"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:layout_margin="16dp"
         android:text="@string/calculate"
         android:textAllCaps="false"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/remove"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintStart_toEndOf="@+id/add" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/remove"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/quest_regular"
-        android:text="@string/remove"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/calculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/calculate"
-        app:layout_constraintTop_toTopOf="@+id/calculate" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

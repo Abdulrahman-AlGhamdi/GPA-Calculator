@@ -4,9 +4,7 @@ import android.graphics.drawable.Animatable2
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.animation.AnimationUtils.loadAnimation
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -30,6 +28,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun init() {
+        setHasOptionsMenu(true)
+        binding.message.text = getString(R.string.message, String(Character.toChars(0x2764)))
         val appearAnimation = loadAnimation(requireContext(), R.anim.appear_animation)
         val bottomAnimation = loadAnimation(requireContext(), R.anim.animation_from_button)
         binding.logo.animation = appearAnimation
@@ -55,6 +55,21 @@ class HomeFragment : Fragment() {
             val action = HomeFragmentDirections.actionHomeFragmentToTotalCalculateFragment()
             findNavController().navigate(action)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.home_menu, menu )
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if (item.itemId == R.id.settings) {
+            val action = HomeFragmentDirections.actionHomeFragmentToSettingsFragment()
+            findNavController().navigate(action)
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroyView() {

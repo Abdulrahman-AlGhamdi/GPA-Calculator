@@ -5,13 +5,14 @@ import android.content.Context.INPUT_METHOD_SERVICE
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.ss.gpacalculator.R
 import com.ss.gpacalculator.adapter.GpaAdapter
 import com.ss.gpacalculator.databinding.FragmentSemesterCalculateBinding
@@ -26,18 +27,19 @@ class SemesterCalculateFragment : Fragment() {
     private val viewModel: CalculateViewModel by viewModels()
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSemesterCalculateBinding.inflate(inflater, container, false)
 
         init()
-        addOrDeleteListItem()
+        deleteListItem()
         calculateGrade()
 
         return binding.root
     }
 
     private fun init() {
+        setHasOptionsMenu(true)
         GpaAdapter().apply {
             if (viewModel.semesterSubjectList.isNotEmpty()) {
                 this.differ.submitList(viewModel.semesterSubjectList)
@@ -51,25 +53,37 @@ class SemesterCalculateFragment : Fragment() {
         }
     }
 
-    private fun addOrDeleteListItem() {
-        binding.add.setOnClickListener {
-            GpaAdapter().apply {
-                val subject = SubjectModel((viewModel.semesterSubjectList.size + 1), 0, 0)
-                viewModel.semesterSubjectList.add(subject)
-                this.differ.submitList(viewModel.semesterSubjectList)
-                binding.semesterList.adapter = this
+    private fun deleteListItem() {
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
+            ItemTouchHelper.UP or ItemTouchHelper.DOWN,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return true
             }
-        }
 
-        binding.remove.setOnClickListener {
-            if (viewModel.semesterSubjectList.isNotEmpty()) {
-                viewModel.semesterSubjectList.removeLast()
-                GpaAdapter().apply {
-                    this.differ.submitList(viewModel.semesterSubjectList)
-                    binding.semesterList.adapter = this
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                if (viewModel.semesterSubjectList.isNotEmpty()) {
+                    val subject = viewModel.semesterSubjectList[viewHolder.adapterPosition]
+                    viewModel.semesterSubjectList.forEach {
+                        if (it.number > viewHolder.adapterPosition + 1)
+                            it.number -= 1
+                    }
+                    GpaAdapter().apply {
+                        viewModel.semesterSubjectList.remove(subject)
+                        this.differ.submitList(viewModel.semesterSubjectList)
+                        binding.semesterList.adapter = this
+                    }
+                    Snackbar.make(requireView(), "Subject Successfully Deleted", Snackbar.LENGTH_SHORT).show()
                 }
             }
         }
+
+        ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(binding.semesterList)
     }
 
     private fun calculateGrade() {
@@ -110,6 +124,26 @@ class SemesterCalculateFragment : Fragment() {
             dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialog.show()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.add_menu, menu )
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.add_menu) {
+            GpaAdapter().apply {
+                val subject = SubjectModel((viewModel.semesterSubjectList.size + 1), 0, 0)
+                viewModel.semesterSubjectList.add(subject)
+                GpaAdapter().apply {
+                    this.differ.submitList(viewModel.semesterSubjectList)
+                    binding.semesterList.adapter = this
+                }
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroyView() {

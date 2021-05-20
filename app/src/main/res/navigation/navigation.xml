@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_semesterCalculateFragment"
             app:destination="@id/semesterCalculateFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
 
     <fragment
@@ -27,7 +30,12 @@
     <fragment
         android:id="@+id/totalCalculateFragment"
         android:name="com.ss.gpacalculator.ui.overall.OverallCalculateFragment"
-        android:label="@string/calculate_total"
+        android:label="@string/calculate_overall"
         tools:layout="@layout/fragment_overall_calculate" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.ss.gpacalculator.ui.settings.SettingsFragment"
+        android:label="@string/settings" />
 
 </navigation>
