@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">GPA Calculator</string>
 
-    <!-- Home Fragment Strings -->
+    <!-- Fragment Names Strings -->
     <string name="calculate_semester">Semester</string>
-    <string name="calculate_total">Overall</string>
+    <string name="calculate_overall">Overall</string>
+    <string name="settings">Settings</string>
 
-    <!-- Overall & Semester Fragment Strings -->
+    <!-- Home, Overall & Semester Fragment Strings -->
     <string name="add">Add</string>
     <string name="remove">Remove</string>
     <string name="gpa">GPA</string>
@@ -13,6 +14,7 @@
     <string name="calculate">Calculate GPA</string>
     <string name="old_gpa">Previous GPA</string>
     <string name="old_credit">Previous Credit</string>
+    <string name="message">Made with %1$s Abdulrahman Al-Ghamdi</string>
 
     <!-- Spinner Strings Array -->
     <string-array name="grades">
@@ -27,5 +29,19 @@
         <item>D</item>
         <item>F</item>
     </string-array>
+
+    <!-- Settings Preference Strings -->
+    <string name="application_configuration">Application Configuration</string>
+    <string name="about">About</string>
+    <string name="dark_mode_title">Dark Mode</string>
+    <string name="dark_mode_key" translatable="false">dark mode key</string>
+    <string name="dark_mode_summary_on">Dark mode is enabled</string>
+    <string name="dark_mode_summary_off">Dark mode is disabled</string>
+    <string name="contact_me_key" translatable="false">contact me</string>
+    <string name="contact_me_title">Contact Me</string>
+    <string name="contact_me_summary">Any suggestions or issues please don\'t hesitate to contact me</string>
+    <string name="version_key" translatable="false">version key</string>
+    <string name="version_summary">%1$s (%2$d)</string>
+    <string name="version_title">Application Version</string>
 
 </resources>

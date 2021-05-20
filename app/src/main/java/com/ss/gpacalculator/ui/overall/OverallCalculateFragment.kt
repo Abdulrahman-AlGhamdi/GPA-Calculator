@@ -5,13 +5,14 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.ss.gpacalculator.R
 import com.ss.gpacalculator.adapter.GpaAdapter
 import com.ss.gpacalculator.databinding.FragmentOverallCalculateBinding
@@ -26,50 +27,63 @@ class OverallCalculateFragment : Fragment() {
     private val viewModel: CalculateViewModel by viewModels()
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentOverallCalculateBinding.inflate(inflater, container, false)
 
         init()
-        addOrDeleteListItem()
+        deleteListItem()
         calculateGrade()
 
         return binding.root
     }
 
     private fun init() {
+        setHasOptionsMenu(true)
         GpaAdapter().apply {
-            if (viewModel.totalSubjectList.isNotEmpty()) {
-                this.differ.submitList(viewModel.totalSubjectList)
-                binding.totalList.adapter = this
+            if (viewModel.overallSubjectList.isNotEmpty()) {
+                this.differ.submitList(viewModel.overallSubjectList)
+                binding.overallList.adapter = this
             } else {
                 val subject = SubjectModel(1, 0, 0)
-                viewModel.totalSubjectList.add(subject)
-                this.differ.submitList(viewModel.totalSubjectList)
-                binding.totalList.adapter = this
+                viewModel.overallSubjectList.add(subject)
+                this.differ.submitList(viewModel.overallSubjectList)
+                binding.overallList.adapter = this
             }
         }
     }
 
-    private fun addOrDeleteListItem() {
-        binding.add.setOnClickListener {
-            val subject = SubjectModel((viewModel.totalSubjectList.size + 1), 0, 0)
-            viewModel.totalSubjectList.add(subject)
-            GpaAdapter().apply {
-                this.differ.submitList(viewModel.totalSubjectList)
-                binding.totalList.adapter = this
+    private fun deleteListItem() {
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
+            ItemTouchHelper.UP or ItemTouchHelper.DOWN,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return true
             }
-        }
 
-        binding.remove.setOnClickListener {
-            if (viewModel.totalSubjectList.isNotEmpty()) {
-                viewModel.totalSubjectList.removeLast()
-                GpaAdapter().apply {
-                    this.differ.submitList(viewModel.totalSubjectList)
-                    binding.totalList.adapter = this
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                if (viewModel.overallSubjectList.isNotEmpty()) {
+                    val subject = viewModel.overallSubjectList[viewHolder.adapterPosition]
+                    viewModel.overallSubjectList.forEach {
+                        if (it.number > viewHolder.adapterPosition + 1)
+                            it.number -= 1
+                    }
+                    GpaAdapter().apply {
+                        viewModel.overallSubjectList.remove(subject)
+                        this.differ.submitList(viewModel.overallSubjectList)
+                        binding.overallList.adapter = this
+                    }
+                    Snackbar.make(requireView(), "Subject Successfully Deleted", Snackbar.LENGTH_SHORT).show()
                 }
             }
         }
+
+        ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(binding.overallList)
     }
 
     private fun calculateGrade() {
@@ -93,7 +107,7 @@ class OverallCalculateFragment : Fragment() {
 
                     var totalCredit = 0.0
                     var totalScore = 0.0
-                    viewModel.totalSubjectList.forEach {
+                    viewModel.overallSubjectList.forEach {
                         if (it.grade != 0 && it.credit != 0) {
                             val credit = it.credit.toDouble()
                             val grade = when (it.grade) {
@@ -129,6 +143,26 @@ class OverallCalculateFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.add_menu, menu )
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.add_menu) {
+            GpaAdapter().apply {
+                val subject = SubjectModel((viewModel.overallSubjectList.size + 1), 0, 0)
+                viewModel.overallSubjectList.add(subject)
+                GpaAdapter().apply {
+                    this.differ.submitList(viewModel.overallSubjectList)
+                    binding.overallList.adapter = this
+                }
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroyView() {

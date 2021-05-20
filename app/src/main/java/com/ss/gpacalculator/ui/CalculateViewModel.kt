@@ -6,5 +6,5 @@ import com.ss.gpacalculator.model.SubjectModel
 class CalculateViewModel : ViewModel() {
 
     var semesterSubjectList = ArrayList<SubjectModel>()
-    var totalSubjectList = ArrayList<SubjectModel>()
+    var overallSubjectList = ArrayList<SubjectModel>()
 }
