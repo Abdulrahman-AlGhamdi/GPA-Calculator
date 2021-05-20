@@ -9,6 +9,14 @@ This application helps the user to:
 <a href='https://play.google.com/store/apps/details?id=com.ss.gpacalculator'><img alt='Get it on Google Play' 
 src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height='80px'/></a>
 
+## Application Images
+
+<div style="display:flex;">
+<img alt="App image" src="https://i.ibb.co/L5jtqzV/1.png" width="30%">
+<img alt="App image" src="https://i.ibb.co/hWZ9d8q/2.png" width="30%">
+<img alt="App image" src="https://i.ibb.co/4FyHb9p/3.png" width="30%">
+</div>
+
 ## License
 
 ```
@@ -27,11 +35,3 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see https://www.gnu.org/licenses.
 ```
-
-## Application Images
-
-<div style="display:flex;">
-<img alt="App image" src="https://i.ibb.co/L5jtqzV/1.png" width="30%">
-<img alt="App image" src="https://i.ibb.co/hWZ9d8q/2.png" width="30%">
-<img alt="App image" src="https://i.ibb.co/4FyHb9p/3.png" width="30%">
-</div>
