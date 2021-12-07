@@ -1,23 +1,41 @@
-# GPA Calculator
+<div align="center"><img src="https://i.ibb.co/3rYTSQk/icon.png" width="20%"></div>
 
-This application helps the user to:
-* Calculate the CGPA & quarterly average.
-* Choose as many subjects as you want to calculate the average.
-* English & Arabic are supported depending on the device language.
-* Ability to switch between dark and light mode.
+<h3 align="center">GPA Calculator</h3>
 
-<a href='https://play.google.com/store/apps/details?id=com.ss.gpacalculator'><img alt='Get it on Google Play' 
-src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height='80px'/></a>
+<p align="center">
+  Calculate the average of the subjects with a precise calculation for undergraduate students
+</p>
 
-## Application Images
+##
 
-<div style="display:flex;">
-<img alt="App image" src="https://i.ibb.co/L5jtqzV/1.png" width="10%">
-<img alt="App image" src="https://i.ibb.co/hWZ9d8q/2.png" width="10%">
-<img alt="App image" src="https://i.ibb.co/4FyHb9p/3.png" width="10%">
+<h3 align="center">Application Contains</h3>
+
+<table align="center">
+    <tr><td align="center">1</td><td>Calculate the CGPA & quarterly average.</td></tr>
+    <tr><td align="center">2</td><td>Choose as many subjects as you want to calculate the average.</td></tr>
+    <tr><td align="center">3</td><td>English & Arabic are supported depending on the device language.</td></tr>
+    <tr><td align="center">4</td><td>Ability to switch between dark and light mode.</td></tr>
+</table>
+
+<div align="center">
+  <a href='https://play.google.com/store/apps/details?id=com.ss.gpacalculator'>
+    <img height="80px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/>
+  </a>
 </div>
 
-## License
+##
+
+<h3 align="center">Application Images</h3>
+
+<div align="center" >
+  <img width="10%" src="https://i.ibb.co/L5jtqzV/1.png">
+  <img width="10%" src="https://i.ibb.co/hWZ9d8q/2.png">
+  <img width="10%" src="https://i.ibb.co/4FyHb9p/3.png">
+</div>
+
+##
+
+<h3 align="center">License</h3>
 
 ```
 Copyright (C) 2021 Abdulrahman Al-Ghamdi
