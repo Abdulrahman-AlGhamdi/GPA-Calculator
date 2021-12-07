@@ -4,7 +4,7 @@
 
     <application
         android:name=".GpaCalculatorApp"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/icon_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_launcher_round"
@@ -14,7 +14,8 @@
 
         <activity
             android:name="com.ss.gpacalculator.MainActivity"
-            android:configChanges="locale">
+            android:configChanges="locale"
+            android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
