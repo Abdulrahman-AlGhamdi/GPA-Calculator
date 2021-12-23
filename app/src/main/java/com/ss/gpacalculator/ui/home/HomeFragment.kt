@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ss.gpacalculator.R
 import com.ss.gpacalculator.databinding.FragmentHomeBinding
+import com.ss.gpacalculator.utils.navigateTo
 import com.ss.gpacalculator.utils.viewBinding
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -47,12 +48,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun navigateTo() {
         binding.semesterCalculate.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToSemesterCalculateFragment()
-            findNavController().navigate(action)
+            findNavController().navigateTo(action, R.id.homeFragment)
         }
 
         binding.totalCalculate.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToTotalCalculateFragment()
-            findNavController().navigate(action)
+            findNavController().navigateTo(action, R.id.homeFragment)
         }
     }
 
@@ -64,7 +65,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.settings) {
             val action = HomeFragmentDirections.actionHomeFragmentToSettingsFragment()
-            findNavController().navigate(action)
+            findNavController().navigateTo(action, R.id.homeFragment)
         }
         return super.onOptionsItemSelected(item)
     }

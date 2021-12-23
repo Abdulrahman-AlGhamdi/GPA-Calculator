@@ -21,6 +21,7 @@ import com.ss.gpacalculator.adapter.GpaAdapter
 import com.ss.gpacalculator.databinding.FragmentSemesterCalculateBinding
 import com.ss.gpacalculator.model.SubjectModel
 import com.ss.gpacalculator.ui.CalculateViewModel
+import com.ss.gpacalculator.utils.showSnackBar
 import com.ss.gpacalculator.utils.viewBinding
 import java.text.DecimalFormat
 
@@ -77,7 +78,7 @@ class SemesterCalculateFragment : Fragment(R.layout.fragment_semester_calculate)
                         this.differ.submitList(viewModel.semesterSubjectList)
                         binding.semesterList.adapter = this
                     }
-                    Snackbar.make(requireView(), "Subject Successfully Deleted", Snackbar.LENGTH_SHORT).show()
+                    requireView().showSnackBar("Subject Successfully Deleted")
                 }
             }
         }
