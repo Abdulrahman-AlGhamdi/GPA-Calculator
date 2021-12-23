@@ -9,8 +9,6 @@
 
     <!-- Overall & Semester Fragment Strings -->
     <string name="add">إضافه</string>
-    <string name="remove">حذف</string>
-    <string name="gpa">المعدل</string>
     <string name="credit">الساعات</string>
     <string name="calculate">حساب المعدل</string>
     <string name="old_gpa">المعدل السابق</string>

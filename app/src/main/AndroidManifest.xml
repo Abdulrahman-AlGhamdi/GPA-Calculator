@@ -13,7 +13,7 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name="com.ss.gpacalculator.MainActivity"
+            android:name="com.ss.gpacalculator.ui.MainActivity"
             android:configChanges="locale"
             android:exported="true">
 
