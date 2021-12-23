@@ -4,27 +4,26 @@ import android.graphics.drawable.Animatable2
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import android.view.animation.AnimationUtils.loadAnimation
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ss.gpacalculator.R
 import com.ss.gpacalculator.databinding.FragmentHomeBinding
+import com.ss.gpacalculator.utils.viewBinding
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private val binding by viewBinding(FragmentHomeBinding::bind)
 
-    override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         init()
         navigateTo()
-
-        return binding.root
     }
 
     private fun init() {
@@ -59,21 +58,14 @@ class HomeFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.home_menu, menu )
+        inflater.inflate(R.menu.home_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         if (item.itemId == R.id.settings) {
             val action = HomeFragmentDirections.actionHomeFragmentToSettingsFragment()
             findNavController().navigate(action)
         }
-
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
