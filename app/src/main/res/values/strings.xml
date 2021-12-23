@@ -8,8 +8,6 @@
 
     <!-- Home, Overall & Semester Fragment Strings -->
     <string name="add">Add</string>
-    <string name="remove">Remove</string>
-    <string name="gpa">GPA</string>
     <string name="credit">Credit</string>
     <string name="calculate">Calculate GPA</string>
     <string name="old_gpa">Previous GPA</string>
