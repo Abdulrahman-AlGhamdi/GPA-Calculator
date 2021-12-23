@@ -5,7 +5,10 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -18,24 +21,20 @@ import com.ss.gpacalculator.adapter.GpaAdapter
 import com.ss.gpacalculator.databinding.FragmentOverallCalculateBinding
 import com.ss.gpacalculator.model.SubjectModel
 import com.ss.gpacalculator.ui.CalculateViewModel
+import com.ss.gpacalculator.utils.viewBinding
 import java.text.DecimalFormat
 
-class OverallCalculateFragment : Fragment() {
+class OverallCalculateFragment : Fragment(R.layout.fragment_overall_calculate) {
 
-    private var _binding: FragmentOverallCalculateBinding? = null
-    private val binding get() = _binding!!
+    private val binding by viewBinding(FragmentOverallCalculateBinding::bind)
     private val viewModel: CalculateViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentOverallCalculateBinding.inflate(inflater, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         init()
         deleteListItem()
         calculateGrade()
-
-        return binding.root
     }
 
     private fun init() {
@@ -163,10 +162,5 @@ class OverallCalculateFragment : Fragment() {
         }
 
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
