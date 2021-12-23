@@ -1,4 +1,4 @@
-<div align="center"><img src="https://i.ibb.co/3rYTSQk/icon.png" width="20%"></div>
+<div align="center"><img src="./googlePlayAssets/icon/icon.png" width="20%"></div>
 
 <h3 align="center">GPA Calculator</h3>
 
@@ -28,9 +28,9 @@
 <h3 align="center">Application Images</h3>
 
 <div align="center" >
-  <img width="10%" src="https://i.ibb.co/L5jtqzV/1.png">
-  <img width="10%" src="https://i.ibb.co/hWZ9d8q/2.png">
-  <img width="10%" src="https://i.ibb.co/4FyHb9p/3.png">
+  <img width="10%" src="./googlePlayAssets/screenshots/1.png">
+  <img width="10%" src="./googlePlayAssets/screenshots/2.png">
+  <img width="10%" src="./googlePlayAssets/screenshots/3.png">
 </div>
 
 ##
