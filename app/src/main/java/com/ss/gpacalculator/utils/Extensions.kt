@@ -1,24 +1,17 @@
 package com.ss.gpacalculator.utils
 
-import android.view.View
-import androidx.navigation.NavController
-import androidx.navigation.NavDirections
-import com.google.android.material.snackbar.Snackbar
+fun String.addDot(): String {
+    if (this.isBlank()) return this
 
-fun View.showSnackBar(
-    message: String,
-    length: Int = Snackbar.LENGTH_SHORT,
-    anchorView: Int? = null,
-    actionMessage: String? = null,
-    action: (View) -> Unit = {}
-) {
-    Snackbar.make(this, message, length).apply {
-        actionMessage?.let { this.setAction(actionMessage) { action(it) } }
-        anchorView?.let { this.setAnchorView(anchorView) }
-    }.show()
+    val string = if (this.length >= 2 && !this.contains(".")) buildString {
+        this.append(this@addDot.first())
+        this.append(".")
+        this.append(this@addDot.substring(1))
+    } else this
+
+    return string.getLittersInRange(0..3)
 }
 
-fun NavController.navigateTo(action: NavDirections, fragmentId: Int) {
-    if (this.currentDestination == this.graph.findNode(fragmentId))
-        this.navigate(action)
+fun String.getLittersInRange(range: IntRange): String {
+    return if (this.length > range.last) this.substring(range = range) else this
 }

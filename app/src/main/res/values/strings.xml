@@ -1,22 +1,34 @@
 <resources>
     <string name="app_name">GPA Calculator</string>
 
-    <!-- Fragment Names Strings -->
-    <string name="calculate_semester">Semester</string>
-    <string name="calculate_overall">Overall</string>
-    <string name="settings">Settings</string>
+    <!-- Home Screen Strings -->
+    <string name="home_screen">Home</string>
+    <string name="home_calculate_semester">Semester Calculator</string>
+    <string name="home_calculate_overall">Overall Calculator</string>
 
-    <!-- Home, Overall & Semester Fragment Strings -->
+    <!-- Semester Screen Strings -->
+    <string name="semester_screen">Semester</string>
+    <string name="semester_calculate">Calculate Semester GPA</string>
+
+    <!-- Overall Screen Strings -->
+    <string name="overall_screen">Overall</string>
+    <string name="overall_old_gpa">Previous GPA</string>
+    <string name="overall_old_credit">Previous Credit</string>
+    <string name="overall_calculate">Calculate Overall GPA</string>
+
+    <!-- Settings Screen Strings -->
+    <string name="settings_screen">Settings</string>
+    <string name="settings_about">About</string>
+    <string name="settings_contact_title">Contact Me</string>
+    <string name="settings_version_title">Application Version</string>
+    <string name="settings_version_message" translatable="false">%1$d (%2$s)</string>
+
+    <!-- Common Strings -->
     <string name="add">Add</string>
+    <string name="grade">Grade</string>
     <string name="credit">Credit</string>
-    <string name="calculate">Calculate GPA</string>
-    <string name="old_gpa">Previous GPA</string>
-    <string name="old_credit">Previous Credit</string>
-    <string name="message">Made with %1$s Abdulrahman Al-Ghamdi</string>
 
-    <!-- Spinner Strings Array -->
-    <string-array name="grades">
-        <item>Grade</item>
+    <string-array name="grades" translatable="false">
         <item>A+</item>
         <item>A</item>
         <item>B+</item>
@@ -27,19 +39,4 @@
         <item>D</item>
         <item>F</item>
     </string-array>
-
-    <!-- Settings Preference Strings -->
-    <string name="application_configuration">Application Configuration</string>
-    <string name="about">About</string>
-    <string name="dark_mode_title">Dark Mode</string>
-    <string name="dark_mode_key" translatable="false">dark mode key</string>
-    <string name="dark_mode_summary_on">Dark mode is enabled</string>
-    <string name="dark_mode_summary_off">Dark mode is disabled</string>
-    <string name="contact_me_key" translatable="false">contact me</string>
-    <string name="contact_me_title">Contact Me</string>
-    <string name="contact_me_summary">Any suggestions or issues please don\'t hesitate to contact me</string>
-    <string name="version_key" translatable="false">version key</string>
-    <string name="version_summary">%1$s (%2$d)</string>
-    <string name="version_title">Application Version</string>
-
 </resources>

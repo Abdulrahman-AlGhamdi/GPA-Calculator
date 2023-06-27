@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ss.gpacalculator">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
-        android:name=".GpaCalculatorApp"
+        android:name=".App"
         android:allowBackup="false"
         android:icon="@mipmap/icon_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GpaCalculator"
-        android:usesCleartextTraffic="true">
+        android:theme="@style/Theme.GpaCalculator">
 
         <activity
-            android:name="com.ss.gpacalculator.ui.MainActivity"
+            android:name="com.ss.gpacalculator.screen.MainActivity"
             android:configChanges="locale"
             android:exported="true">
 

@@ -1,7 +1,7 @@
 package com.ss.gpacalculator.model
 
 data class SubjectModel(
-    var number : Int,
-    var credit : Int,
-    var grade  : Int
+    var number : Int = 1,
+    var credit : Char = ' ',
+    var grade  : String = "A+"
 )
