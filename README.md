@@ -31,6 +31,7 @@
   <img width="10%" src="./googlePlayAssets/screenshots/1.png">
   <img width="10%" src="./googlePlayAssets/screenshots/2.png">
   <img width="10%" src="./googlePlayAssets/screenshots/3.png">
+  <img width="10%" src="./googlePlayAssets/screenshots/4.png">
 </div>
 
 ##
