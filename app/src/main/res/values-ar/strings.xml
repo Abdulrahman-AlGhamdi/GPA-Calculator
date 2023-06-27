@@ -2,42 +2,29 @@
 <resources>
     <string name="app_name">حساب المعدل</string>
 
-    <!-- Fragment Names Strings -->
-    <string name="calculate_semester">فصلي</string>
-    <string name="calculate_overall">تراكمي</string>
-    <string name="settings">إعدادات</string>
+    <!-- Home Screen Strings -->
+    <string name="home_screen">الرئيسية</string>
+    <string name="home_calculate_semester">حساب معدل فصلي</string>
+    <string name="home_calculate_overall">حساب معدل تراكمي</string>
 
-    <!-- Overall & Semester Fragment Strings -->
+    <!-- Semester Screen Strings -->
+    <string name="semester_screen">فصلي</string>
+    <string name="semester_calculate">حساب المعدل الفصلي</string>
+
+    <!-- Overall Screen Strings -->
+    <string name="overall_screen">تراكمي</string>
+    <string name="overall_old_gpa">المعدل السابق</string>
+    <string name="overall_old_credit">الساعات السابقه</string>
+    <string name="overall_calculate">حساب المعدل التراكمي</string>
+
+    <!-- Settings Screen Strings -->
+    <string name="settings_screen">الإعدادات</string>
+    <string name="settings_about">حول</string>
+    <string name="settings_contact_title">تواصل معي</string>
+    <string name="settings_version_title">اصدار التطبيق</string>
+
+    <!-- Common Strings -->
     <string name="add">إضافه</string>
+    <string name="grade">الدرجة</string>
     <string name="credit">الساعات</string>
-    <string name="calculate">حساب المعدل</string>
-    <string name="old_gpa">المعدل السابق</string>
-    <string name="old_credit">الساعات السابقه</string>
-    <string name="message">صنع بـ %1$s عبدالرحمن الغامدي</string>
-
-    <!-- Spinner Strings Array -->
-    <string-array name="grades">
-        <item>الدرجه</item>
-        <item>A+</item>
-        <item>A</item>
-        <item>B+</item>
-        <item>B</item>
-        <item>C+</item>
-        <item>C</item>
-        <item>D+</item>
-        <item>D</item>
-        <item>F</item>
-    </string-array>
-
-    <!-- Settings Preference Strings -->
-    <string name="application_configuration">إعدادات التطبيق</string>
-    <string name="about">حول</string>
-    <string name="dark_mode_title">الوضع الليلي</string>
-    <string name="dark_mode_summary_on">الوضع الليلي مفعل</string>
-    <string name="dark_mode_summary_off">الوضع الليلي غير مفعل</string>
-    <string name="contact_me_title">تواصل معي</string>
-    <string name="contact_me_summary">أي اقتراحات او مشاكل من فضلك لا تتردد في التواصل معي</string>
-    <string name="version_summary">%1$s (%2$d)</string>
-    <string name="version_title">اصدار التطبيق</string>
-
 </resources>
